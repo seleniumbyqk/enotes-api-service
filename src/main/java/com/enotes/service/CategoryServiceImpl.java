@@ -2,6 +2,7 @@ package com.enotes.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 import org.modelmapper.ModelMapper;
@@ -98,7 +99,11 @@ public class CategoryServiceImpl implements CategoryService{
 	public List<CategoryDto> getAllCategory() {
 		// TODO Auto-generated method stub
 		
-		List<Category> categories = categoryRepository.findAll();
+		//It will show all category including deleted category
+		//List<Category> categories = categoryRepository.findAll();
+		
+		//It will show all category except deleted category
+		List<Category> categories = categoryRepository.findByIsDeletedFalse();
 		
 		//Convert from category to CategoryDto in list
 		List<CategoryDto> categoryDtoList = categories.stream().map(cat -> modelMapper.map(cat, CategoryDto.class)).toList();
@@ -111,11 +116,60 @@ public class CategoryServiceImpl implements CategoryService{
 	public List<CategoryResponse> getActiveCategory() {
 		// TODO Auto-generated method stub
 		
-		List<Category> categories = categoryRepository.findByIsActiveTrue();
+		//It will show all active categories including deleted category
+		//List<Category> categories = categoryRepository.findByIsActiveTrue();
+		
+		//It will show all categories except deleted category
+		List<Category> categories = categoryRepository.findByIsActiveTrueAndIsDeletedFalse();
 		
 		List<CategoryResponse> categoryList = categories.stream().map(cat -> modelMapper.map(cat, CategoryResponse.class)).toList();
 		
 		return categoryList;
 	}
+
+
+	@Override
+	public CategoryDto getCategoryById(Integer id) {
+		// TODO Auto-generated method stub
+		
+		//It will show all categories including deleted
+		//Optional<Category> findByCategory = categoryRepository.findById(id);
+		
+		//It will show all categories except deleted
+		Optional<Category> findByCategory = categoryRepository.findByIdAndIsDeletedFalse(id);
+		
+		if(findByCategory.isPresent())
+		{
+			Category category = findByCategory.get();
+			
+			return modelMapper.map(category, CategoryDto.class);
+		}
+		
+		return null;
+	}
+
+
+	@Override
+	public boolean deleteCategoryDetailsById(Integer id) {
+		// TODO Auto-generated method stub
+		
+Optional<Category> findByCategory = categoryRepository.findById(id);
+		
+		if(findByCategory.isPresent())
+		{
+			Category category = findByCategory.get();
+			
+			category.setIsDeleted(true);
+			
+			categoryRepository.save(category);
+			
+			return true;
+		}
+		
+		return false;
+	}
+
+
+	
 
 }

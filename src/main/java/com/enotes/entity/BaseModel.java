@@ -8,7 +8,7 @@ import jakarta.persistence.MappedSuperclass;
 public class BaseModel {
 
 	
-    private boolean isActive;
+    private Boolean isActive;
 	
 	private boolean isDeleted;
 	

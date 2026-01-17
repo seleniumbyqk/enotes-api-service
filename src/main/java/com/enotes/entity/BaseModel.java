@@ -2,39 +2,49 @@ package com.enotes.entity;
 
 import java.util.Date;
 
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public class BaseModel {
+public abstract class BaseModel {
 
-	
-    private Boolean isActive;
-	
-	private boolean isDeleted;
-	
+	@CreatedBy       // Automatic updation
+	@Column(updatable = false)
 	private Integer createdBy;
 	
+	@CreatedDate
+	@Column(updatable = false)
 	private Date createdOn;
 	
+	@LastModifiedBy
+	@Column(insertable = false)
 	private Integer updatedBy;
 	
+	@LastModifiedDate
+	@Column(insertable = false)
 	private Date updatedOn;
 
-	public boolean getIsActive() {
-		return isActive;
+	
+	public BaseModel() {
+		super();
+	}
+	
+	
+
+	public BaseModel(Integer createdBy, Date createdOn, Integer updatedBy, Date updatedOn) {
+		super();
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
 	}
 
-	public void setIsActive(boolean isActive) {
-		this.isActive = isActive;
-	}
 
-	public boolean getIsDeleted() {
-		return isDeleted;
-	}
-
-	public void setIsDeleted(boolean isDeleted) {
-		this.isDeleted = isDeleted;
-	}
 
 	public Integer getCreatedBy() {
 		return createdBy;
@@ -67,6 +77,15 @@ public class BaseModel {
 	public void setUpdatedOn(Date updatedOn) {
 		this.updatedOn = updatedOn;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "BaseModel [createdBy=" + createdBy + ", createdOn=" + createdOn + ", updatedBy=" + updatedBy
+				+ ", updatedOn=" + updatedOn + "]";
+	}
+	
 	
 	
 }

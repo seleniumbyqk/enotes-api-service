@@ -76,7 +76,8 @@ public class CategoryServiceImpl implements CategoryService{
 		{
 			category.setIsDeleted(false);
 			
-			category.setCreatedBy(1);
+			//Manual insertion
+			//category.setCreatedBy(1);
 			
 			category.setCreatedOn(new Date());
 		}
@@ -106,7 +107,7 @@ public class CategoryServiceImpl implements CategoryService{
 		if(findById.isPresent())
 		{
 			
-			//Don't change this values while updating
+			//Don't change this values while updating - manual adding
 			Category existCategory = findById.get();
 			
 			category.setCreatedBy(existCategory.getCreatedBy());
@@ -115,9 +116,9 @@ public class CategoryServiceImpl implements CategoryService{
 			
 			category.setIsDeleted(existCategory.getIsDeleted());
 			
-			category.setUpdatedBy(1);
+			//category.setUpdatedBy(1);
 			
-			category.setUpdatedOn(new Date());
+			//category.setUpdatedOn(new Date());
 		}
 		
 	}

@@ -23,7 +23,7 @@ public class CategoryDto {
 	private String description;
 	
     //@NotNull
-    private boolean isActive;
+    private Boolean isActive;
 		
 	private Integer createdBy;
 	

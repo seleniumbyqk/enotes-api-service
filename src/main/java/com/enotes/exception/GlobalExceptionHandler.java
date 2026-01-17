@@ -60,4 +60,12 @@ public class GlobalExceptionHandler {
 //		return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
 		return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
 	}
+	
+	
+	@ExceptionHandler(ValidationException.class)
+	public ResponseEntity<?> handleValidationException(ValidationException e)
+	{
+		return new ResponseEntity<>(e.getErrors(), HttpStatus.BAD_REQUEST);
+	}
+	
 }

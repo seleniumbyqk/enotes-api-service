@@ -15,6 +15,7 @@ import com.enotes.dto.CategoryResponse;
 import com.enotes.entity.Category;
 import com.enotes.exception.ResourceNotFoundException;
 import com.enotes.repository.CategoryRepository;
+import com.enotes.util.Validation;
 
 @Service
 public class CategoryServiceImpl implements CategoryService{
@@ -24,6 +25,9 @@ public class CategoryServiceImpl implements CategoryService{
 	
 	@Autowired
 	private ModelMapper modelMapper;
+	
+	@Autowired
+	private Validation validation;
 	
 	/*
 	//Without DTO
@@ -61,6 +65,9 @@ public class CategoryServiceImpl implements CategoryService{
 		//category.setName(categoryDto.getName());
 		//category.setDescription(categoryDto.getDescription());
 		//category.setIsActive(categoryDto.getIsActive());
+		
+		//Validation Checking before mapper means converting from categoryDto to category
+		validation.categoryValidation(categoryDto);
 		
 		//Remove above line with model mapper
 		Category category = modelMapper.map(categoryDto, Category.class);

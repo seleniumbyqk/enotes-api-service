@@ -2,12 +2,16 @@ package com.enotes.entity;
 
 import java.util.Date;
 
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Category extends BaseModel{
 
 	@Id
@@ -18,18 +22,23 @@ public class Category extends BaseModel{
 	
 	private String description;
 	
+
+    private boolean isActive;
 	
+	private boolean isDeleted;
 
 	public Category() {
 		super();
 	}
 
 
-
-	public Category(String name, String description) {
+	public Category(Integer id, String name, String description, boolean isActive, boolean isDeleted) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.description = description;
+		this.isActive = isActive;
+		this.isDeleted = isDeleted;
 	}
 
 
@@ -70,12 +79,32 @@ public class Category extends BaseModel{
 
 
 
+	public boolean getIsActive() {
+		return isActive;
+	}
+
+
+	public void setIsActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+
+
+	public boolean getIsDeleted() {
+		return isDeleted;
+	}
+
+
+	public void setIsDeleted(boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+
+	
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", description=" + description + "]";
+		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", isActive=" + isActive
+				+ ", isDeleted=" + isDeleted + "]";
 	}
-	
-	
 	
 	
 }

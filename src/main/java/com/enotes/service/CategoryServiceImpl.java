@@ -13,6 +13,7 @@ import org.springframework.util.ObjectUtils;
 import com.enotes.dto.CategoryDto;
 import com.enotes.dto.CategoryResponse;
 import com.enotes.entity.Category;
+import com.enotes.exception.ResourceNotFoundException;
 import com.enotes.repository.CategoryRepository;
 
 @Service
@@ -163,23 +164,58 @@ public class CategoryServiceImpl implements CategoryService{
 
 
 	@Override
-	public CategoryDto getCategoryById(Integer id) {
+	public CategoryDto getCategoryById(Integer id) throws ResourceNotFoundException {
 		// TODO Auto-generated method stub
 		
 		//It will show all categories including deleted
 		//Optional<Category> findByCategory = categoryRepository.findById(id);
 		
 		//It will show all categories except deleted
-		Optional<Category> findByCategory = categoryRepository.findByIdAndIsDeletedFalse(id);
+		//Without exception
+		//Optional<Category> findByCategory = categoryRepository.findByIdAndIsDeletedFalse(id);
+				
 		
+		//With exception handling
+		Category category = categoryRepository.findByIdAndIsDeletedFalse(id)
+				.orElseThrow(() -> new ResourceNotFoundException("Category not found with id " + id));
+		
+		
+		/*
+		//Without exception
 		if(findByCategory.isPresent())
 		{
 			Category category = findByCategory.get();
 			
 			return modelMapper.map(category, CategoryDto.class);
 		}
+		*/
+		
+		
+		/////////////////////////////////////////////
+		
+		//With exception
+		
+		if(!ObjectUtils.isEmpty(category))
+		{
+			/*
+			if(category.getName() == null)
+			{
+				throw new IllegalArgumentException("Name is null");
+			}
+			*/
+			
+			category.getName().toUpperCase();
+			
+			return modelMapper.map(category, CategoryDto.class);
+		}
+		
+		
+		//return modelMapper.map(category, CategoryDto.class);
 		
 		return null;
+		
+		//////////////////////////////////////////////
+		
 	}
 
 

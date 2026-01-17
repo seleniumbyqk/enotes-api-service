@@ -21,6 +21,8 @@ import com.enotes.entity.Category;
 import com.enotes.exception.ResourceNotFoundException;
 import com.enotes.service.CategoryService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/v1/category")
 public class CategoryController {
@@ -49,7 +51,7 @@ public class CategoryController {
 	
 	//With DTO
 	@PostMapping("/save")
-	public ResponseEntity<?> saveCategory(@RequestBody CategoryDto categoryDto)
+	public ResponseEntity<?> saveCategory(@Valid @RequestBody CategoryDto categoryDto)
 	{
 		//String nm = null;
 		//nm.toUpperCase();

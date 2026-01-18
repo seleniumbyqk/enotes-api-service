@@ -23,16 +23,16 @@ public class Category extends BaseModel{
 	private String description;
 	
 
-    private boolean isActive;
+    private Boolean isActive;
 	
-	private boolean isDeleted;
+	private Boolean isDeleted;
 
 	public Category() {
 		super();
 	}
 
 
-	public Category(Integer id, String name, String description, boolean isActive, boolean isDeleted) {
+	public Category(Integer id, String name, String description, Boolean isActive, boolean isDeleted) {
 		super();
 		this.id = id;
 		this.name = name;

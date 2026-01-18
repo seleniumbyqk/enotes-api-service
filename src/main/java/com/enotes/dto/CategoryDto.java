@@ -37,7 +37,7 @@ public class CategoryDto {
 		super();
 	}
 
-	public CategoryDto(Integer id, String name, String description, boolean isActive, Integer createdBy, Date createdOn,
+	public CategoryDto(Integer id, String name, String description, Boolean isActive, Integer createdBy, Date createdOn,
 			Integer updatedBy, Date updatedOn) {
 		super();
 		this.id = id;

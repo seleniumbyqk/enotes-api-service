@@ -1,0 +1,166 @@
+package com.enotes.dto;
+
+import java.util.Date;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+
+
+import jakarta.persistence.Column;
+import jakarta.persistence.ManyToOne;
+
+public class NotesDto {
+
+	private Integer id;
+
+	private String title;
+
+	private String description;
+
+	private CategoryDto category;
+
+	private Integer createdBy;
+
+	private Date createdOn;
+
+	private Integer updatedBy;
+
+	private Date updatedOn;
+	
+	
+	
+	
+
+	public NotesDto() {
+		super();
+	}
+
+	public NotesDto(Integer id, String title, String description, CategoryDto category, Integer createdBy,
+			Date createdOn, Integer updatedBy, Date updatedOn) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.description = description;
+		this.category = category;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	
+
+	public CategoryDto getCategory() {
+		return category;
+	}
+
+
+	public void setCategory(CategoryDto category) {
+		this.category = category;
+	}
+
+
+	public Integer getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(Integer createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public Integer getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(Integer updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	@Override
+	public String toString() {
+		return "NotesDto [id=" + id + ", title=" + title + ", description=" + description + ", category=" + category
+				+ ", createdBy=" + createdBy + ", createdOn=" + createdOn + ", updatedBy=" + updatedBy + ", updatedOn="
+				+ updatedOn + "]";
+	}
+
+	
+	public static class CategoryDto
+	{
+		private Integer id;
+		
+		private String name;
+
+		public CategoryDto() {
+			super();
+		}
+
+		public CategoryDto(Integer id, String name) {
+			super();
+			this.id = id;
+			this.name = name;
+		}
+
+		public Integer getId() {
+			return id;
+		}
+
+		public void setId(Integer id) {
+			this.id = id;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+		
+		
+		
+	}
+	
+	
+}

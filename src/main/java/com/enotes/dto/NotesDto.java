@@ -28,16 +28,29 @@ public class NotesDto {
 
 	private Date updatedOn;
 	
+	private FilesDto fileDetails;
 	
 	
 	
+	
+
+	public FilesDto getFileDetails() {
+		return fileDetails;
+	}
+
+	public void setFileDetails(FilesDto fileDetails) {
+		this.fileDetails = fileDetails;
+	}
 
 	public NotesDto() {
 		super();
 	}
 
+	
+
+
 	public NotesDto(Integer id, String title, String description, CategoryDto category, Integer createdBy,
-			Date createdOn, Integer updatedBy, Date updatedOn) {
+			Date createdOn, Integer updatedBy, Date updatedOn, FilesDto fileDetails) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -47,8 +60,8 @@ public class NotesDto {
 		this.createdOn = createdOn;
 		this.updatedBy = updatedBy;
 		this.updatedOn = updatedOn;
+		this.fileDetails = fileDetails;
 	}
-
 
 	public Integer getId() {
 		return id;
@@ -122,7 +135,7 @@ public class NotesDto {
 	public String toString() {
 		return "NotesDto [id=" + id + ", title=" + title + ", description=" + description + ", category=" + category
 				+ ", createdBy=" + createdBy + ", createdOn=" + createdOn + ", updatedBy=" + updatedBy + ", updatedOn="
-				+ updatedOn + "]";
+				+ updatedOn + ", fileDetails=" + fileDetails + "]";
 	}
 
 	
@@ -158,6 +171,69 @@ public class NotesDto {
 			this.name = name;
 		}
 		
+	}
+	
+	
+	public static class FilesDto
+	{
+		private Integer id;
+		
+		//private String uploadFileName;
+		
+		private String originalFileName;
+		
+		private String displayFileName;
+		
+		//private String path;
+		
+		//private Long fileSize;
+
+		public FilesDto() {
+			super();
+		}
+
+		
+
+		public FilesDto(Integer id, String originalFileName, String displayFileName) {
+			super();
+			this.id = id;
+			this.originalFileName = originalFileName;
+			this.displayFileName = displayFileName;
+		}
+
+
+
+		public Integer getId() {
+			return id;
+		}
+
+		public void setId(Integer id) {
+			this.id = id;
+		}
+
+		
+		public String getOriginalFileName() {
+			return originalFileName;
+		}
+
+		public void setOriginalFileName(String originalFileName) {
+			this.originalFileName = originalFileName;
+		}
+
+		public String getDisplayFileName() {
+			return displayFileName;
+		}
+
+		public void setDisplayFileName(String displayFileName) {
+			this.displayFileName = displayFileName;
+		}
+
+		
+		@Override
+		public String toString() {
+			return "FilesDto [id=" + id + ", originalFileName=" + originalFileName + ", displayFileName="
+					+ displayFileName + "]";
+		}
 		
 		
 	}

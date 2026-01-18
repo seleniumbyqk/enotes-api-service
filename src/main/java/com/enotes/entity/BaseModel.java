@@ -13,7 +13,7 @@ import jakarta.persistence.MappedSuperclass;
 @MappedSuperclass
 public abstract class BaseModel {
 
-	@CreatedBy       // Automatic updation
+	@CreatedBy       // Automatic update
 	@Column(updatable = false)
 	private Integer createdBy;
 	

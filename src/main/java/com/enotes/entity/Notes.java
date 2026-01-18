@@ -27,18 +27,38 @@ public class Notes extends BaseModel{
 	@ManyToOne
 	 @JoinColumn(name = "category_id")
 	private Category category;
+	
+	@ManyToOne
+	private FileDetails fileDetails;
 
 	public Notes() {
 		super();
 	}
 
-	public Notes(Integer id, String title, String description, Category category) {
+	
+
+	public Notes(Integer id, String title, String description, Category category, FileDetails fileDetails) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.category = category;
+		this.fileDetails = fileDetails;
 	}
+
+
+
+	public FileDetails getFileDetails() {
+		return fileDetails;
+	}
+
+
+
+	public void setFileDetails(FileDetails fileDetails) {
+		this.fileDetails = fileDetails;
+	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -74,7 +94,8 @@ public class Notes extends BaseModel{
 
 	@Override
 	public String toString() {
-		return "Notes [id=" + id + ", title=" + title + ", description=" + description + ", category=" + category + "]";
+		return "Notes [id=" + id + ", title=" + title + ", description=" + description + ", category=" + category
+				+ ", fileDetails=" + fileDetails + "]";
 	}
 	
 	

@@ -13,6 +13,9 @@ import org.apache.commons.io.FilenameUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StreamUtils;
@@ -20,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.enotes.dto.NotesDto;
 import com.enotes.dto.NotesDto.CategoryDto;
+import com.enotes.dto.NotesResponse;
 import com.enotes.entity.Category;
 import com.enotes.entity.FileDetails;
 import com.enotes.entity.Notes;
@@ -294,6 +298,36 @@ public class NotesServiceImpl implements NotesService{
 		return fileDetails;
 	}
 
+
+	@Override
+	public NotesResponse getAllNotesByUser(Integer userId, Integer pageNo, Integer pageSize) {
+		// TODO Auto-generated method stub
+		
+		//Pagination 
+		//Total 10 notes - 5 on one page - total 2 pages
+		//Pageable pageable = PageRequest.of(3, 5);  //First page number and second page number and page number starts from 0 index
+		
+		Pageable pageable = PageRequest.of(pageNo, pageSize);
+		
+		Page<Notes> pageNotes = notesRepository.findByCreatedBy(userId, pageable);
+		
+		List<NotesDto> notesDto = pageNotes.getContent()
+	            .stream().map(n -> modelMapper.map(n, NotesDto.class)).toList();
+		
+		NotesResponse notes = NotesResponse.builder()
+				.notes(notesDto)
+				.pageNo(pageNotes.getNumber())
+				.pageSize(pageNotes.getSize())
+				.totalElements(pageNotes.getTotalElements())
+				.totalPages(pageNotes.getTotalPages())
+				.first(pageNotes.isFirst())
+				.last(pageNotes.isLast())
+				.build();
+		
+		return notes;
+	}
+
+	
 	
 	
 }

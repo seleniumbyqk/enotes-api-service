@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.enotes.dto.NotesDto;
+import com.enotes.dto.NotesResponse;
 import com.enotes.entity.FileDetails;
 import com.enotes.service.NotesService;
 import com.enotes.util.CommonUtil;
@@ -68,6 +69,8 @@ public class NotesController {
 			return CommonUtil.createErrorResponseMessage("Notes not saved", HttpStatus.INTERNAL_SERVER_ERROR);
 			
 		}
+		
+		
 	@GetMapping("/")
 	public ResponseEntity<?> getAllNotes()
 	{
@@ -100,5 +103,28 @@ public class NotesController {
 		headers.setContentDispositionFormData("attachment", fileDetails.getOriginalFileName());
 		
 		return ResponseEntity.ok().headers(headers).body(data);
+	}
+	
+	@GetMapping("/user-notes")
+	public ResponseEntity<?> getAllNotesByUser(
+			//default value provide
+			@RequestParam(name = "pageNo", defaultValue = "0") Integer pageNo,
+			@RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize
+			)
+	{
+		Integer userId = 2;
+		
+		NotesResponse notes = notesService.getAllNotesByUser(userId, pageNo, pageSize);
+		
+		/*
+		//If true
+		if(CollectionUtils.isEmpty(notes))
+		{
+			//Give message
+			return ResponseEntity.noContent().build();
+		}
+		*/
+		return CommonUtil.createBuildResponse(notes, HttpStatus.OK);
+		
 	}
 }

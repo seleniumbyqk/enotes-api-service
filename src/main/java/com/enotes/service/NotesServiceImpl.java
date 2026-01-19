@@ -1,6 +1,7 @@
 package com.enotes.service;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -14,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.enotes.dto.NotesDto;
@@ -170,7 +172,7 @@ public class NotesServiceImpl implements NotesService{
 			
 			String extension = FilenameUtils.getExtension(originalFileName);
 			
-			List<String> extensionAllow = Arrays.asList(".pdf", ".xlsx", ".jpg", ".png");
+			List<String> extensionAllow = Arrays.asList("pdf", "xlsx", "jpg", "png", "docs", "txt");
 			
 			if(!extensionAllow.contains(extension))
 			{
@@ -265,6 +267,31 @@ public class NotesServiceImpl implements NotesService{
 		
 		//write all in one line 
 		return notesRepository.findAll().stream().map(note -> modelMapper.map(note, NotesDto.class)).toList();
+	}
+
+
+	@Override
+	public byte[] downloadFile(FileDetails fileDetails) throws Exception {
+		// TODO Auto-generated method stub
+		
+				
+		FileInputStream io = new FileInputStream(fileDetails.getPath());
+		
+		//Convert stream to byte
+		byte[] byteData = StreamUtils.copyToByteArray(io);
+		
+		return byteData;
+	}
+
+
+	@Override
+	public FileDetails getFileDetails(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		
+		FileDetails fileDetails = fileRepository.findById(id).orElseThrow(() ->
+		new ResourceNotFoundException("File not available"));
+		
+		return fileDetails;
 	}
 
 	

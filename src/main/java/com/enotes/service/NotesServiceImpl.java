@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.enotes.dto.NotesDto;
 import com.enotes.dto.NotesDto.CategoryDto;
+import com.enotes.dto.NotesDto.FilesDto;
 import com.enotes.dto.NotesResponse;
 import com.enotes.entity.Category;
 import com.enotes.entity.FileDetails;
@@ -110,6 +111,15 @@ public class NotesServiceImpl implements NotesService{
 		ObjectMapper object = new ObjectMapper();
 		NotesDto notesDto = object.readValue(notes, NotesDto.class);
 		
+		//Check id is present or not
+		Integer id = notesDto.getId();
+		
+		if(!ObjectUtils.isEmpty(id))
+		{
+			//Update notes
+			updateNotes(notesDto, file);
+		}
+		
 		
 		
 		//Check category exist or not
@@ -149,6 +159,14 @@ public class NotesServiceImpl implements NotesService{
 	            FileDetails fileDetail = saveFileDetails(file);
 	            notesObj.setFileDetails(fileDetail);
 	        }
+	        else
+	        {
+	        	if(ObjectUtils.isEmpty(notesDto.getId()))
+	        	{
+	        		notesObj.setFileDetails(null);
+	        	}
+	        	
+	        }
 	        
 		Notes saveNotes = notesRepository.save(notesObj);
 		
@@ -163,6 +181,24 @@ public class NotesServiceImpl implements NotesService{
 	}
 	
 	
+	private void updateNotes(NotesDto notesDto, MultipartFile file) throws Exception {
+		// TODO Auto-generated method stub
+		
+		Notes existNotes = notesRepository.findById(notesDto.getId())
+				.orElseThrow(() -> new ResourceNotFoundException("Invalid Notes id"));
+		
+		
+		//If user not choosen any file at update time
+		if(ObjectUtils.isEmpty(file))
+		{
+			FileDetails fileDetails = existNotes.getFileDetails();
+			
+			notesDto.setFileDetails(modelMapper.map(fileDetails, FilesDto.class));
+		}
+		
+	}
+
+
 	private FileDetails saveFileDetails(MultipartFile file) throws IOException {
 		// TODO Auto-generated method stub
 		
@@ -176,7 +212,7 @@ public class NotesServiceImpl implements NotesService{
 			
 			String extension = FilenameUtils.getExtension(originalFileName);
 			
-			List<String> extensionAllow = Arrays.asList("pdf", "xlsx", "jpg", "png", "docs", "txt");
+			List<String> extensionAllow = Arrays.asList("pdf", "xlsx", "jpg", "png", "docs", "txt", "jpeg");
 			
 			if(!extensionAllow.contains(extension))
 			{

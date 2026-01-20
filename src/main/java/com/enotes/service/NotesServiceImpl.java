@@ -187,6 +187,8 @@ public class NotesServiceImpl implements NotesService{
 		Notes existNotes = notesRepository.findById(notesDto.getId())
 				.orElseThrow(() -> new ResourceNotFoundException("Invalid Notes id"));
 		
+		
+		//If user not choosen any file at update time
 		if(ObjectUtils.isEmpty(file))
 		{
 			FileDetails fileDetails = existNotes.getFileDetails();

@@ -30,9 +30,29 @@ public class NotesDto {
 	
 	private FilesDto fileDetails;
 	
+	private Boolean isDeleted;
+
+	private Date deletedOn;
 	
 	
 	
+	
+
+	public Boolean getIsDeleted() {
+		return isDeleted;
+	}
+
+	public void setIsDeleted(Boolean isDeleted) {
+		this.isDeleted = isDeleted;
+	}
+
+	public Date getDeletedOn() {
+		return deletedOn;
+	}
+
+	public void setDeletedOn(Date deletedOn) {
+		this.deletedOn = deletedOn;
+	}
 
 	public FilesDto getFileDetails() {
 		return fileDetails;
@@ -49,8 +69,11 @@ public class NotesDto {
 	
 
 
+	
+
 	public NotesDto(Integer id, String title, String description, CategoryDto category, Integer createdBy,
-			Date createdOn, Integer updatedBy, Date updatedOn, FilesDto fileDetails) {
+			Date createdOn, Integer updatedBy, Date updatedOn, FilesDto fileDetails, Boolean isDeleted,
+			Date deletedOn) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -61,6 +84,8 @@ public class NotesDto {
 		this.updatedBy = updatedBy;
 		this.updatedOn = updatedOn;
 		this.fileDetails = fileDetails;
+		this.isDeleted = isDeleted;
+		this.deletedOn = deletedOn;
 	}
 
 	public Integer getId() {

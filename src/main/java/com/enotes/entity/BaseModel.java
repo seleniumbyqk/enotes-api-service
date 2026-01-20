@@ -28,13 +28,16 @@ public abstract class BaseModel {
 	@LastModifiedDate
 	@Column(insertable = false)
 	private Date updatedOn;
+	
+	
 
 	
 	public BaseModel() {
 		super();
 	}
-	
-	
+
+
+
 
 	public BaseModel(Integer createdBy, Date createdOn, Integer updatedBy, Date updatedOn) {
 		super();
@@ -46,37 +49,60 @@ public abstract class BaseModel {
 
 
 
+
 	public Integer getCreatedBy() {
 		return createdBy;
 	}
+
+
+
 
 	public void setCreatedBy(Integer createdBy) {
 		this.createdBy = createdBy;
 	}
 
+
+
+
 	public Date getCreatedOn() {
 		return createdOn;
 	}
+
+
+
 
 	public void setCreatedOn(Date createdOn) {
 		this.createdOn = createdOn;
 	}
 
+
+
+
 	public Integer getUpdatedBy() {
 		return updatedBy;
 	}
+
+
+
 
 	public void setUpdatedBy(Integer updatedBy) {
 		this.updatedBy = updatedBy;
 	}
 
+
+
+
 	public Date getUpdatedOn() {
 		return updatedOn;
 	}
 
+
+
+
 	public void setUpdatedOn(Date updatedOn) {
 		this.updatedOn = updatedOn;
 	}
+
 
 
 
@@ -87,5 +113,5 @@ public abstract class BaseModel {
 	}
 	
 	
-	
+
 }

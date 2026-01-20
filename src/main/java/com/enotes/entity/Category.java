@@ -89,7 +89,7 @@ public class Category extends BaseModel{
 	}
 
 
-	public boolean getIsDeleted() {
+	public Boolean getIsDeleted() {
 		return isDeleted;
 	}
 

@@ -127,4 +127,40 @@ public class NotesController {
 		return CommonUtil.createBuildResponse(notes, HttpStatus.OK);
 		
 	}
+	
+	
+	//Data delete from database and recycle bin
+	@GetMapping("/delete/{id}")
+	public ResponseEntity<?> deleteNotes(@PathVariable Integer id) throws Exception
+	{
+		notesService.softDeleteNotes(id);
+		
+		return CommonUtil.createBuildResponseMessage("Delete success", HttpStatus.OK);
+	}
+	
+	//Restore data in database
+		@GetMapping("/restore/{id}")
+		public ResponseEntity<?> restoreNotes(@PathVariable Integer id) throws Exception
+		{
+			notesService.restoreNotes(id);
+			
+			return CommonUtil.createBuildResponseMessage("Delete Restore success", HttpStatus.OK);
+		}
+	
+		
+		//Data check in recycle bin which are deleted
+		@GetMapping("/recycle-bin")
+		public ResponseEntity<?> getUserRecycleBinNotes() throws Exception
+		{
+			Integer userId =2;
+			
+			List<NotesDto> notes = notesService.getUserRecycleBinNotes(userId);
+			
+			if(CollectionUtils.isEmpty(notes))
+			{
+				return CommonUtil.createBuildResponseMessage("Notes not available", HttpStatus.OK);
+			}
+			
+			return CommonUtil.createBuildResponse(notes, HttpStatus.OK);
+		}
 }

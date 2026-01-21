@@ -1,5 +1,6 @@
 package com.enotes.dto;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.springframework.data.annotation.CreatedDate;
@@ -32,7 +33,7 @@ public class NotesDto {
 	
 	private Boolean isDeleted;
 
-	private Date deletedOn;
+	private LocalDateTime deletedOn;
 	
 	
 	
@@ -46,11 +47,11 @@ public class NotesDto {
 		this.isDeleted = isDeleted;
 	}
 
-	public Date getDeletedOn() {
+	public LocalDateTime getDeletedOn() {
 		return deletedOn;
 	}
 
-	public void setDeletedOn(Date deletedOn) {
+	public void setDeletedOn(LocalDateTime deletedOn) {
 		this.deletedOn = deletedOn;
 	}
 
@@ -73,7 +74,7 @@ public class NotesDto {
 
 	public NotesDto(Integer id, String title, String description, CategoryDto category, Integer createdBy,
 			Date createdOn, Integer updatedBy, Date updatedOn, FilesDto fileDetails, Boolean isDeleted,
-			Date deletedOn) {
+			LocalDateTime deletedOn) {
 		super();
 		this.id = id;
 		this.title = title;

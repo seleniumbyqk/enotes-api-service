@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +20,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -378,7 +381,7 @@ public class NotesServiceImpl implements NotesService{
 		
 		notes.setIsDeleted(true);
 		
-		notes.setDeletedOn(new Date());
+		notes.setDeletedOn(LocalDateTime.now());
 		
 		notesRepository.save(notes);
 	}
@@ -411,6 +414,38 @@ public class NotesServiceImpl implements NotesService{
 		return notesDtoList;
 	}
 
+
+	@Override
+	public void hardDeleteNotes(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		
+		Notes notes = notesRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Notes not found"));
+		
+		if(notes.getIsDeleted())   // if idDelete true
+		{
+			notesRepository.delete(notes);
+		}
+		else
+		{
+			throw new IllegalArgumentException("Sorry you can't hard delete directly");
+		}
+	}
+
+
+	@Override
+	public void emptyRecycleBin(Integer userId) {
+		// TODO Auto-generated method stub
+		
+		List<Notes> emptyNotes = notesRepository.findByCreatedByAndIsDeletedTrue(userId);
+		
+		if(!CollectionUtils.isEmpty(emptyNotes))
+		{
+			notesRepository.deleteAll(emptyNotes);
+		}
+		
+	}
+
+	
 	
 	
 	

@@ -1,5 +1,7 @@
 package com.enotes.entity;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -35,14 +37,14 @@ public class Notes extends BaseModel {
 
 	private Boolean isDeleted;
 
-	private Date deletedOn;
+	private LocalDateTime deletedOn;
 
 	public Notes() {
 		super();
 	}
 
 	public Notes(Integer id, String title, String description, Category category, FileDetails fileDetails,
-			Boolean isDeleted, Date deletedOn) {
+			Boolean isDeleted, LocalDateTime deletedOn) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -101,11 +103,11 @@ public class Notes extends BaseModel {
 		this.isDeleted = isDeleted;
 	}
 
-	public Date getDeletedOn() {
+	public LocalDateTime getDeletedOn() {
 		return deletedOn;
 	}
 
-	public void setDeletedOn(Date deletedOn) {
+	public void setDeletedOn(LocalDateTime deletedOn) {
 		this.deletedOn = deletedOn;
 	}
 

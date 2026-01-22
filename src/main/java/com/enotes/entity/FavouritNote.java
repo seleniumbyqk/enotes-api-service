@@ -1,8 +1,6 @@
 package com.enotes.entity;
 
 
-import com.enotes.dto.NotesResponse.Builder;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

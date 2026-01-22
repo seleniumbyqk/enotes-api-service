@@ -7,6 +7,7 @@ import java.util.Date;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.enotes.dto.CategoryDto;
+import com.enotes.entity.FavouritNote.Builder;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
@@ -118,4 +119,71 @@ public class Notes extends BaseModel {
 	}
 
 	
+	 // Private constructor for Builder
+    private Notes(Builder builder) {
+        this.id = builder.id;
+        this.title = builder.title;
+        this.description = builder.description;
+        this.category = builder.category;
+        this.fileDetails = builder.fileDetails;
+        this.isDeleted = builder.isDeleted;
+        this.deletedOn = builder.deletedOn;
+    }
+    
+ // ✅ STATIC BUILDER METHOD (THIS WAS MISSING)
+    public static Builder builder() {
+        return new Builder();
+    }
+	
+    
+ // ---------------- BUILDER ----------------
+    public static class Builder {
+
+        private Integer id;
+        private String title;
+        private String description;
+        private Category category;
+        private FileDetails fileDetails;
+        private Boolean isDeleted;
+        private LocalDateTime deletedOn;
+
+        public Builder id(Integer id) {
+            this.id = id;
+            return this;
+        }
+
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Builder category(Category category) {
+            this.category = category;
+            return this;
+        }
+
+        public Builder fileDetails(FileDetails fileDetails) {
+            this.fileDetails = fileDetails;
+            return this;
+        }
+
+        public Builder isDeleted(Boolean isDeleted) {
+            this.isDeleted = isDeleted;
+            return this;
+        }
+
+        public Builder deletedOn(LocalDateTime deletedOn) {
+            this.deletedOn = deletedOn;
+            return this;
+        }
+
+        public Notes build() {
+            return new Notes(this);
+        }
+    }
 }

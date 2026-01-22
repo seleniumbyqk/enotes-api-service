@@ -435,4 +435,40 @@ public class NotesServiceImpl implements NotesService {
 		return favouriteList;
 	}
 
+	@Override
+	public Boolean copyNotes(Integer id) throws Exception {
+		// TODO Auto-generated method stub
+		
+		Notes notes = notesRepository.findById(id).orElseThrow(() -> 
+		new ResourceNotFoundException("Notes is not found"));
+		
+		//Instead of manually we can builder
+		//Notes copyNote = new Notes();
+		//copyNote.setTitle(notes.getTitle());
+		
+		//By using builder
+		Notes copyNote = Notes.builder()
+				.title(notes.getTitle())
+				.description(notes.getDescription())
+				.category(notes.getCategory())
+				.isDeleted(false)
+				.fileDetails(null)
+				.build();
+		
+		Notes saveCopyNote = notesRepository.save(copyNote);
+		
+		if(!ObjectUtils.isEmpty(saveCopyNote))
+		{
+			return true;
+		}
+		
+		
+		return false;
+		
+		
+		
+	}
+	
+	
+
 }

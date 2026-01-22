@@ -1,13 +1,7 @@
 package com.enotes.entity;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
-
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import com.enotes.dto.CategoryDto;
-import com.enotes.entity.FavouritNote.Builder;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;

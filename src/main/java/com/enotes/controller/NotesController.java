@@ -209,10 +209,9 @@ public class NotesController {
 			// Currently logged in user
 			//Integer userId = 2;
 			
-<<<<<<< Updated upstream
-=======
+
 			//TODO: Need to check User Validation
->>>>>>> Stashed changes
+
 			Boolean copyNotes = notesService.copyNotes(id);
 			
 			if(copyNotes)

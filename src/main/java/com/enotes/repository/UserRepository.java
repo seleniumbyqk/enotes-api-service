@@ -8,4 +8,6 @@ import com.enotes.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
 
+	Boolean existsByEmail(String email);
+
 }

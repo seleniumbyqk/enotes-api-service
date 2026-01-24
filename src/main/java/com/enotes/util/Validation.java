@@ -16,9 +16,11 @@ import com.enotes.dto.TodoDto.StatusDto;
 import com.enotes.dto.UserDto;
 import com.enotes.entity.Role;
 import com.enotes.enums.TodoStatus;
+import com.enotes.exception.ExistDataException;
 import com.enotes.exception.ResourceNotFoundException;
 import com.enotes.exception.ValidationException;
 import com.enotes.repository.RoleRepository;
+import com.enotes.repository.UserRepository;
 
 
 @Component
@@ -28,6 +30,9 @@ public class Validation {
 	
 	@Autowired
 	private RoleRepository roleRepository;
+	
+	@Autowired
+	private UserRepository userRepository;
 	
 	public void categoryValidation(CategoryDto categoryDto)
 	{
@@ -143,6 +148,16 @@ public class Validation {
 		{
 			throw new IllegalArgumentException("Email id is invalid");
 		}
+		else
+		{
+			//Duplicate email checking
+			Boolean existEmail = userRepository.existsByEmail(userDto.getEmail());
+			
+			if(existEmail)
+			{
+				throw new ExistDataException("Email id already exist");
+			}
+		}
 		
 		if(!StringUtils.hasText(userDto.getMobno()) || !userDto.getMobno().matches(Constants.MOBNO_REGEX))
 		{
@@ -176,6 +191,8 @@ public class Validation {
 				throw new IllegalArgumentException("Role is invalid" + invalidReqRoleIds);
 			}
 		}
+		
+		
 		
 	}
 }

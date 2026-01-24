@@ -13,7 +13,7 @@ import com.enotes.service.UserService;
 import com.enotes.util.CommonUtil;
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/v1/auth")
 public class AuthController {
 
 	
@@ -23,7 +23,7 @@ public class AuthController {
 	private UserService userService;
 	
 	@PostMapping("/")
-	public ResponseEntity<?> registerUser(@RequestBody UserDto userDto)
+	public ResponseEntity<?> registerUser(@RequestBody UserDto userDto) throws Exception
 	{
 		//Call register method from User service
 		Boolean register = userService.register(userDto);

@@ -38,6 +38,14 @@ public class GlobalExceptionHandler {
 		return CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
+	@ExceptionHandler(IllegalArgumentException.class)
+	public ResponseEntity<?> handleIllegalArgumentException(IllegalArgumentException e)
+	{
+		//return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		
+		return CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.BAD_REQUEST);
+	}
+	
 	@ExceptionHandler(ResourceNotFoundException.class)
 	public ResponseEntity<?> handleResourceNotFoundException(Exception e)
 	{
@@ -85,7 +93,7 @@ public class GlobalExceptionHandler {
 	{
 		//return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
 		
-		return CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.CONFLICT);
+		return CommonUtil.createErrorResponse(e.getMessage(), HttpStatus.CONFLICT);
 	}
 	
 	@ExceptionHandler(HttpMessageNotReadableException.class)
@@ -93,7 +101,7 @@ public class GlobalExceptionHandler {
 	{
 		//return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		
-		return CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.BAD_REQUEST);
+		return CommonUtil.createErrorResponse(e.getMessage(), HttpStatus.BAD_REQUEST);
 	}
 	
 	@ExceptionHandler(FileNotFoundException.class)
@@ -101,7 +109,7 @@ public class GlobalExceptionHandler {
 	{
 		//return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		
-		return CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.NOT_FOUND);
+		return CommonUtil.createErrorResponse(e.getMessage(), HttpStatus.NOT_FOUND);
 	}
 	
 }

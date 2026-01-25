@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 
 import com.enotes.handler.GenericResponse;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 
 
 public class CommonUtil {
@@ -91,5 +93,24 @@ public class CommonUtil {
 		}
 		
 	
+	}
+
+
+	public static String getUrl(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		
+		//Get api url
+		//http://localhost:8081/api/v1/auth
+		String apiUrl = request.getRequestURL().toString();
+		
+		// /api/v1/auth
+		//String url = request.getServletPath();
+		
+		//http://localhost:8081
+		apiUrl = apiUrl.replace(request.getServletPath(), "");
+		
+		System.out.println("Api Url:" + apiUrl);
+		
+		return apiUrl;
 	}
 }

@@ -2,12 +2,16 @@ package com.enotes.entity;
 
 import java.util.List;
 
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -28,14 +32,22 @@ public class User {
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Role> roles;
+	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "status_id")
+	private AccountStatus status;
 
 	public User() {
 		super();
 	}
 
+
 	
 
-	public User(Integer id, String firstName, String lastName, String email, String mobno,String password, List<Role> roles) {
+
+
+	public User(Integer id, String firstName, String lastName, String email, String mobno, String password,
+			List<Role> roles, AccountStatus status) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -44,7 +56,11 @@ public class User {
 		this.mobno = mobno;
 		this.password = password;
 		this.roles = roles;
+		this.status = status;
 	}
+
+
+
 
 
 
@@ -114,10 +130,30 @@ public class User {
 
 
 
+
+
+	public AccountStatus getStatus() {
+		return status;
+	}
+
+
+
+
+
+
+	public void setStatus(AccountStatus status) {
+		this.status = status;
+	}
+
+
+
+
+
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", mobno=" + mobno + ", password=" + password + ", roles=" + roles + "]";
+				+ ", mobno=" + mobno + ", password=" + password + ", roles=" + roles + ", status=" + status + "]";
 	}
 	
 	// Private constructor for Builder
@@ -129,8 +165,15 @@ public class User {
         this.mobno = builder.mobno;
         this.password = builder.password;
         this.roles = builder.roles;
+        this.status = builder.status;
+       
     }
     
+    
+    // ✅ STATIC BUILDER METHOD (THIS WAS MISSING)
+    public static Builder builder() {
+        return new Builder();
+    }
     
  // ---------------- BUILDER ----------------
     public static class Builder {
@@ -142,6 +185,8 @@ public class User {
         private String mobno;
         private String password;
         private List<Role> roles;
+        private AccountStatus status;
+       
 
         public Builder id(Integer id) {
             this.id = id;
@@ -179,6 +224,12 @@ public class User {
             this.roles = roles;
             return this;
         }
+        
+       public Builder status(AccountStatus status)
+       {
+    	   this.status = status;
+    	   return this;
+       }
 
         public User build() {
             return new User(this);

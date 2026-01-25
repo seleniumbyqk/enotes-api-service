@@ -12,6 +12,8 @@ import com.enotes.dto.UserDto;
 import com.enotes.service.UserService;
 import com.enotes.util.CommonUtil;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/api/v1/auth")
 public class AuthController {
@@ -22,6 +24,8 @@ public class AuthController {
 	@Autowired
 	private UserService userService;
 	
+	/*
+	//Dynamic url 1
 	@PostMapping("/")
 	public ResponseEntity<?> registerUser(@RequestBody UserDto userDto) throws Exception
 	{
@@ -37,5 +41,26 @@ public class AuthController {
 		//If false
 		return CommonUtil.createErrorResponseMessage("Register failed", HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+	*/
 	
+	//Dynamic url 2
+	@PostMapping("/")
+	public ResponseEntity<?> registerUser(@RequestBody UserDto userDto, HttpServletRequest request) throws Exception
+	{
+		//Fully dynamic url
+		 String url = CommonUtil.getUrl(request);
+		
+		
+		//Call register method from User service
+		Boolean register = userService.register(userDto, url);
+		
+		//Check true or false and throw error
+		if(register)
+		{
+			return CommonUtil.createBuildResponseMessage("Register success", HttpStatus.CREATED);
+		}
+		
+		//If false
+		return CommonUtil.createErrorResponseMessage("Register failed", HttpStatus.INTERNAL_SERVER_ERROR);
+	}
 }

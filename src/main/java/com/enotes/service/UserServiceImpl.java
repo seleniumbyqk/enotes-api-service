@@ -1,6 +1,7 @@
 package com.enotes.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.util.ObjectUtils;
 
 import com.enotes.dto.EmailRequest;
 import com.enotes.dto.UserDto;
+import com.enotes.entity.AccountStatus;
 import com.enotes.entity.Role;
 import com.enotes.entity.User;
 import com.enotes.repository.RoleRepository;
@@ -35,7 +37,7 @@ public class UserServiceImpl implements UserService{
 	private EmailService emailService;
 	
 	@Override
-	public Boolean register(UserDto userDto) throws Exception {
+	public Boolean register(UserDto userDto, String url) throws Exception {
 		// TODO Auto-generated method stub
 		
 		//Apply validation
@@ -47,6 +49,14 @@ public class UserServiceImpl implements UserService{
 		//Role is a another table thats why created
 		setRole(userDto, user);
 		
+		//Set isActive and create verification code
+		AccountStatus status = AccountStatus.builder()
+				.isActive(false)
+				.verificationCode(UUID.randomUUID().toString())
+				.build();
+		
+		user.setStatus(status);
+		
 		//Save in repository
 		User saveUser = userRepository.save(user);
 		
@@ -55,7 +65,7 @@ public class UserServiceImpl implements UserService{
 		{
 			//Send email logic
 			//Add dependency starter mail in pom.xml
-			emailSend(saveUser);
+			emailSend(saveUser, url);
 			
 			return true;
 		}
@@ -64,14 +74,27 @@ public class UserServiceImpl implements UserService{
 		return false;
 	}
 
-	private void emailSend(User saveUser) throws Exception {
+	private void emailSend(User saveUser, String url) throws Exception {
 		// TODO Auto-generated method stub
+		//Static url
 		
-		String message = "Hi, <b>" + saveUser.getFirstName() + "</b>"
+		String message = "Hi <b>[[username]],</b>"
 				+ " <br> Your account Register succesfully. <br>"
-				+ "<br> Click the below link verify your account <br>"
-				+ "<a href='#'>Click Here</a> <br><br>"
+				+ "<br> Click the below link to verify and activate your account <br>"
+				+ "<a href='[[url]]'>Click Here</a> <br><br>"
 				+ "Thanks, <br> Enotes.com";
+		
+		message = message.replace("[[username]]", saveUser.getFirstName());
+		
+		//Dynamic url -1
+		//message = message.replace("[[url]]", "http://localhost:8081/api/v1/home/verify?uid=" 
+		//+ saveUser.getId() + "&&code=" + saveUser.getStatus().getVerificationCode());
+		
+		//Dynamic url -2
+		message = message.replace("[[url]]", url + "/api/v1/home/verify?uid=" 
+				+ saveUser.getId() + "&&code=" + saveUser.getStatus().getVerificationCode());
+		
+		System.out.println("Dynamic url:"+ url);
 		
 		EmailRequest emailRequest = EmailRequest.builder()
 				.to(saveUser.getEmail())

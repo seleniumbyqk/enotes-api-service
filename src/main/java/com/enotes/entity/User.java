@@ -30,7 +30,7 @@ public class User {
 	
 	private String password;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Role> roles;
 	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
@@ -58,10 +58,6 @@ public class User {
 		this.roles = roles;
 		this.status = status;
 	}
-
-
-
-
 
 
 	public Integer getId() {
@@ -128,26 +124,13 @@ public class User {
 		this.password = password;
 	}
 
-
-
-
-
 	public AccountStatus getStatus() {
 		return status;
 	}
 
-
-
-
-
-
 	public void setStatus(AccountStatus status) {
 		this.status = status;
 	}
-
-
-
-
 
 
 	@Override

@@ -50,6 +50,9 @@ public class UserServiceImpl implements UserService{
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 	
+	@Autowired
+	private JwtService jwtService;
+	
 	@Override
 	public Boolean register(UserDto userDto, String url) throws Exception {
 		// TODO Auto-generated method stub
@@ -147,7 +150,10 @@ public class UserServiceImpl implements UserService{
 			
 			CustomUserDetails customUserDetails = (CustomUserDetails)authenticate.getPrincipal();
 			
-			String token = "fhhfjhgkgyhhgvkhfj";
+			//String token = "fhhfjhgkgyhhgvkhfj";
+			
+			//Call key generator
+			String token = jwtService.generateToken(customUserDetails.getUser());
 			
 			LoginResponse loginResponse = LoginResponse.builder()
 					.user(modelMapper.map(customUserDetails.getUser(), UserDto.class))

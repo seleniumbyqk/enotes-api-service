@@ -9,10 +9,12 @@ import java.util.Map;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.enotes.entity.User;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
@@ -46,6 +48,7 @@ public class JwtServiceImpl implements JwtService{
 		// TODO Auto-generated method stub
 		
 		Map<String, Object> claims = new HashMap<>();
+		claims.put("id", user.getId());
 		claims.put("role", user.getRoles());
 		claims.put("status", user.getStatus().getIsActive());
 		
@@ -54,7 +57,7 @@ public class JwtServiceImpl implements JwtService{
 		.claims().add(claims)
 		.subject(user.getEmail())
 		.issuedAt(new Date(System.currentTimeMillis()))
-		.expiration(new Date(System.currentTimeMillis() + 60*60*10))  //10 seconds
+		.expiration(new Date(System.currentTimeMillis() + 60*60*60*10))  //10 seconds
 		.and()
 		.signWith(getKey())
 		.compact();
@@ -70,5 +73,86 @@ public class JwtServiceImpl implements JwtService{
 		return Keys.hmacShaKeyFor(keyBytes);
 	}
 
+
+
+	@Override
+	public String extractUsername(String token) {
+		// TODO Auto-generated method stub
+		
+		Claims claims = extractAllClaims(token);
+		
+		//claims.getSubject();
+		
+		return claims.getSubject();
+	}
+
+	//Get Role
+	public String role(String token)
+	{
+		Claims claims = extractAllClaims(token);
+		
+		String role = (String)claims.get("role");
+		
+		return role;
+	}
+
+	private Claims extractAllClaims(String token) {
+		// TODO Auto-generated method stub
+		
+		Claims claims = Jwts.parser()
+				.verifyWith(decryptKey(secretKey))
+				.build()
+				.parseSignedClaims(token)
+				.getPayload();
+		
+		return claims;
+	}
+
+
+
+	private SecretKey decryptKey(String secretKey) {
+		// TODO Auto-generated method stub
+		
+		//Convert from encrypt to decrypt
+		byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+		
+		return Keys.hmacShaKeyFor(keyBytes);
+		
+	}
+
+
+
+	@Override
+	public Boolean validateToken(String token, UserDetails userDetails) {
+		// TODO Auto-generated method stub
+		
+		String username = extractUsername(token);
+		
+		Boolean isExpired = isTokenExpired(token);
+		
+		if(username.equalsIgnoreCase(userDetails.getUsername()) && !isExpired)
+		{
+			return true;
+		}
+		
+		return false;
+	}
+
+
+
+	private Boolean isTokenExpired(String token) {
+		// TODO Auto-generated method stub
+		
+		Claims claims = extractAllClaims(token);
+		
+		Date expiredDate = claims.getExpiration();
+		
+		//Today - 10th, exp - 11th
+		
+		return expiredDate.before(new Date());
+	}
+
+	
+	
 	
 }

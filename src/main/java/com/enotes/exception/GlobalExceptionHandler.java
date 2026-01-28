@@ -1,6 +1,7 @@
 package com.enotes.exception;
 
 import java.io.FileNotFoundException;
+import java.nio.file.AccessDeniedException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,13 +13,13 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.enotes.util.CommonUtil;
 
 
-@ControllerAdvice
+@RestControllerAdvice
 public class GlobalExceptionHandler {
 
 	
@@ -31,12 +32,21 @@ public class GlobalExceptionHandler {
 	}
 	
 	
+	@ExceptionHandler(AccessDeniedException.class)
+	public ResponseEntity<?> handleAccessDeniedException(AccessDeniedException e)
+	{
+		//return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		
+		return CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.FORBIDDEN);
+	}
+	
+	
 	@ExceptionHandler(SuccessException.class)
 	public ResponseEntity<?> handleSuccessException(SuccessException e)
 	{
 		//return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		
-		return CommonUtil.createBuildResponseMessage(e.getMessage(), HttpStatus.OK);
+		return CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.OK);
 	}
 	
 	
@@ -103,7 +113,7 @@ public class GlobalExceptionHandler {
 	{
 		//return new ResponseEntity<>(e.getMessage(), HttpStatus.CONFLICT);
 		
-		return CommonUtil.createErrorResponse(e.getMessage(), HttpStatus.CONFLICT);
+		return CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.CONFLICT);
 	}
 	
 	@ExceptionHandler(HttpMessageNotReadableException.class)
@@ -111,7 +121,7 @@ public class GlobalExceptionHandler {
 	{
 		//return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		
-		return CommonUtil.createErrorResponse(e.getMessage(), HttpStatus.BAD_REQUEST);
+		return CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.BAD_REQUEST);
 	}
 	
 	@ExceptionHandler(FileNotFoundException.class)
@@ -119,7 +129,7 @@ public class GlobalExceptionHandler {
 	{
 		//return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		
-		return CommonUtil.createErrorResponse(e.getMessage(), HttpStatus.NOT_FOUND);
+		return CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(BadCredentialsException.class)
@@ -127,7 +137,7 @@ public class GlobalExceptionHandler {
 	{
 		//return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
 		
-		return CommonUtil.createErrorResponse(e.getMessage(), HttpStatus.BAD_REQUEST);
+		return CommonUtil.createErrorResponseMessage(e.getMessage(), HttpStatus.BAD_REQUEST);
 	}
 	
 }

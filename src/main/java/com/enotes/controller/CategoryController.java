@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -52,6 +53,7 @@ public class CategoryController {
 	
 	//With DTO
 	@PostMapping("/save")
+	@PreAuthorize("hasRole('ADMIN')")         //Only admin can authorize
 	public ResponseEntity<?> saveCategory(@Valid @RequestBody CategoryDto categoryDto)
 	{
 		//String nm = null;
@@ -96,6 +98,7 @@ public class CategoryController {
 	
 	//With DTO - All Category
 	@GetMapping("/")
+	@PreAuthorize("hasRole('ADMIN')") 
 	public ResponseEntity<?> getAllCategory()
 	{
 		List<CategoryDto> allCategory = categoryService.getAllCategory();
@@ -114,6 +117,8 @@ public class CategoryController {
 	
 	//With DTO - All Category from category response
 		@GetMapping("/active")
+		//@PreAuthorize("hasRole('USER')")   //Only for user
+		@PreAuthorize("hasAnyRole('USER', 'ADMIN')")   //Multiple role
 		public ResponseEntity<?> getActiveCategory()
 		{
 			List<CategoryResponse> allCategory = categoryService.getActiveCategory();
@@ -132,6 +137,7 @@ public class CategoryController {
 	
 		
 		@GetMapping("/{id}")
+		@PreAuthorize("hasRole('ADMIN')") 
 		public ResponseEntity<?> getCategoryDetailsById(@PathVariable Integer id) throws ResourceNotFoundException
 		{
 			//When we will use try-catch block then custom exception will run otherwise 
@@ -179,6 +185,7 @@ public class CategoryController {
 		
 		
 		@DeleteMapping("/{id}")
+		@PreAuthorize("hasRole('ADMIN')") 
 		public ResponseEntity<?> deleteCategoryDetailsById(@PathVariable Integer id)
 		{
 			boolean deleted = categoryService.deleteCategoryDetailsById(id);

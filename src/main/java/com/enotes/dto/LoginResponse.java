@@ -4,7 +4,7 @@ import com.enotes.entity.FavouritNote.Builder;
 
 public class LoginResponse {
 
-	private UserDto user;
+	private UserRequest user;
 	
 	private String token;
 
@@ -12,17 +12,17 @@ public class LoginResponse {
 		super();
 	}
 
-	public LoginResponse(UserDto user, String token) {
+	public LoginResponse(UserRequest user, String token) {
 		super();
 		this.user = user;
 		this.token = token;
 	}
 
-	public UserDto getUser() {
+	public UserRequest getUser() {
 		return user;
 	}
 
-	public void setUser(UserDto user) {
+	public void setUser(UserRequest user) {
 		this.user = user;
 	}
 
@@ -56,11 +56,11 @@ public class LoginResponse {
 	//Builder class
 	public static class Builder{
 		
-		private UserDto user;
+		private UserRequest user;
 		
 		private String token;
 		
-		public Builder user(UserDto user)
+		public Builder user(UserRequest user)
 		{
 			this.user = user;
 			return this;

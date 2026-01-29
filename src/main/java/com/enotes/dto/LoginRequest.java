@@ -1,6 +1,6 @@
 package com.enotes.dto;
 
-import com.enotes.dto.UserDto.Builder;
+import com.enotes.dto.UserRequest.Builder;
 
 public class LoginRequest {
 

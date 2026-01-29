@@ -39,6 +39,7 @@ import com.enotes.repository.CategoryRepository;
 import com.enotes.repository.FavouriteNoteRepository;
 import com.enotes.repository.FileRepository;
 import com.enotes.repository.NotesRepository;
+import com.enotes.util.CommonUtil;
 
 import tools.jackson.databind.ObjectMapper;
 
@@ -306,13 +307,15 @@ public class NotesServiceImpl implements NotesService {
 	}
 
 	@Override
-	public NotesResponse getAllNotesByUser(Integer userId, Integer pageNo, Integer pageSize) {
+	public NotesResponse getAllNotesByUser(Integer pageNo, Integer pageSize) {  // Integer userId - use when no logged in user
 		// TODO Auto-generated method stub
 
 		// Pagination
 		// Total 10 notes - 5 on one page - total 2 pages
 		// Pageable pageable = PageRequest.of(3, 5); //First page number and second page
 		// number and page number starts from 0 index
+		
+		Integer userId = CommonUtil.getLoggedInUser().getId();
 
 		Pageable pageable = PageRequest.of(pageNo, pageSize);
 
@@ -358,8 +361,10 @@ public class NotesServiceImpl implements NotesService {
 
 	// Data check in recycle bin which are deleted
 	@Override
-	public List<NotesDto> getUserRecycleBinNotes(Integer userId) {
+	public List<NotesDto> getUserRecycleBinNotes() {   //Integer userId - use when no logged in user
 		// TODO Auto-generated method stub
+		
+		Integer userId = CommonUtil.getLoggedInUser().getId();
 
 		List<Notes> recycleNotes = notesRepository.findByCreatedByAndIsDeletedTrue(userId);
 
@@ -383,8 +388,11 @@ public class NotesServiceImpl implements NotesService {
 	}
 
 	@Override
-	public void emptyRecycleBin(Integer userId) {
+	public void emptyRecycleBin() {      // Integer userId - take as a parameter when no logged in user
 		// TODO Auto-generated method stub
+		
+		//logged in user id
+		Integer userId = CommonUtil.getLoggedInUser().getId();
 
 		List<Notes> emptyNotes = notesRepository.findByCreatedByAndIsDeletedTrue(userId);
 
@@ -398,7 +406,9 @@ public class NotesServiceImpl implements NotesService {
 	public void favouriteNotes(Integer noteId) throws Exception {
 		// TODO Auto-generated method stub
 
-		Integer userId = 2;
+		//Integer userId = 2;
+		
+		Integer userId = CommonUtil.getLoggedInUser().getId();
 
 		Notes notes = notesRepository.findById(noteId)
 				.orElseThrow(() -> new ResourceNotFoundException("Notes id invalid"));
@@ -413,7 +423,8 @@ public class NotesServiceImpl implements NotesService {
 	public void unFavouriteNotes(Integer favouriteNoteId) throws Exception {
 		// TODO Auto-generated method stub
 
-		Integer userId = 2;
+		//Integer userId = 2;
+		Integer userId = CommonUtil.getLoggedInUser().getId();
 
 		FavouritNote favNote = favouriteNoteRepository.findById(favouriteNoteId)
 				.orElseThrow(() -> new ResourceNotFoundException("Favourite Notes id invalid"));
@@ -425,7 +436,11 @@ public class NotesServiceImpl implements NotesService {
 	public List<FavouritNoteDto> getUserFaouriteNotes() throws Exception {
 		// TODO Auto-generated method stub
 		
-		Integer userId = 2;
+		//Static user
+		//Integer userId = 2;
+		
+		//logged in user id
+		Integer userId = CommonUtil.getLoggedInUser().getId();
 		
 		List<FavouritNote> favouriteNotes = favouriteNoteRepository.findByUserId(userId);
 		

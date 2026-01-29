@@ -7,7 +7,7 @@ import com.enotes.entity.User.Builder;
 
 
 
-public class UserDto {
+public class UserRequest {
 
 private Integer id;
 	
@@ -25,13 +25,13 @@ private Integer id;
 	
 	
 	
-	public UserDto() {
+	public UserRequest() {
 		super();
 	}
 
 
 
-	public UserDto(Integer id, String firstName, String lastName, String email, String mobno,String password, List<RoleDto> roles) {
+	public UserRequest(Integer id, String firstName, String lastName, String email, String mobno,String password, List<RoleDto> roles) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -131,13 +131,13 @@ private Integer id;
 
 	@Override
 	public String toString() {
-		return "UserDto [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+		return "UserRequest [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", mobno=" + mobno + ", password=" + password + ", roles=" + roles + "]";
 	}
 
 
 	 // Private constructor used by Builder
-    private UserDto(Builder builder) {
+    private UserRequest(Builder builder) {
         this.id = builder.id;
         this.firstName = builder.firstName;
         this.lastName = builder.lastName;
@@ -196,8 +196,8 @@ private Integer id;
             return this;
         }
 
-        public UserDto build() {
-            return new UserDto(this);
+        public UserRequest build() {
+            return new UserRequest(this);
         }
     }
 

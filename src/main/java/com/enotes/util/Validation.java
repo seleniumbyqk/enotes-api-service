@@ -13,7 +13,7 @@ import org.springframework.util.StringUtils;
 import com.enotes.dto.CategoryDto;
 import com.enotes.dto.TodoDto;
 import com.enotes.dto.TodoDto.StatusDto;
-import com.enotes.dto.UserDto;
+import com.enotes.dto.UserRequest;
 import com.enotes.entity.Role;
 import com.enotes.enums.TodoStatus;
 import com.enotes.exception.ExistDataException;
@@ -130,7 +130,7 @@ public class Validation {
 	}
 	
 	
-	public void userValidation(UserDto userDto)
+	public void userValidation(UserRequest userDto)
 	{
 		
 		

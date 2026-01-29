@@ -13,6 +13,7 @@ import com.enotes.entity.Todo;
 import com.enotes.enums.TodoStatus;
 import com.enotes.exception.ResourceNotFoundException;
 import com.enotes.repository.TodoRepository;
+import com.enotes.util.CommonUtil;
 import com.enotes.util.Validation;
 
 @Service
@@ -85,7 +86,8 @@ public class TodoServiceImpl implements TodoService{
 		// TODO Auto-generated method stub
 		
 		
-		Integer userId = 2;
+		//Integer userId = 2;
+		Integer userId = CommonUtil.getLoggedInUser().getId();
 		
 		List<Todo> todos = todoRepository.findByCreatedBy(userId);
 		

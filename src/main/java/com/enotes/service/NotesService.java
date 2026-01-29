@@ -22,17 +22,17 @@ public interface NotesService {
 
 	public FileDetails getFileDetails(Integer id) throws Exception;
 
-	public NotesResponse getAllNotesByUser(Integer userId, Integer pageNo, Integer pageSize);
+	public NotesResponse getAllNotesByUser(Integer pageNo, Integer pageSize);  //Integer userId - use when no logged in user
 
 	public void softDeleteNotes(Integer id) throws Exception;
 
 	public void restoreNotes(Integer id) throws Exception;
 
-	public List<NotesDto> getUserRecycleBinNotes(Integer userId);
+	public List<NotesDto> getUserRecycleBinNotes();         // Integer userId - use when no logged in user
 
 	public void hardDeleteNotes(Integer id) throws Exception;
 
-	public void emptyRecycleBin(Integer userId);
+	public void emptyRecycleBin();       //Integer userId - no need when logged in user
 	
 	public void favouriteNotes(Integer noteId) throws Exception;
 	

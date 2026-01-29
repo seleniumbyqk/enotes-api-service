@@ -104,9 +104,14 @@ public class NotesController {
 			// default value provide
 			@RequestParam(name = "pageNo", defaultValue = "0") Integer pageNo,
 			@RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
-		Integer userId = 2;
+		
+		//Static user id
+		//Integer userId = 2;
+		
+		//logged in user id
+		Integer userId = CommonUtil.getLoggedInUser().getId();
 
-		NotesResponse notes = notesService.getAllNotesByUser(userId, pageNo, pageSize);
+		NotesResponse notes = notesService.getAllNotesByUser(pageNo, pageSize);   //userId - when no logged in user
 
 		/*
 		 * //If true if(CollectionUtils.isEmpty(notes)) { //Give message return
@@ -138,9 +143,14 @@ public class NotesController {
 	@GetMapping("/recycle-bin")
 	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<?> getUserRecycleBinNotes() throws Exception {
-		Integer userId = 2;
+		
+		//Static user id
+		//Integer userId = 2;
+		
+		//logged in user id
+		Integer userId = CommonUtil.getLoggedInUser().getId();
 
-		List<NotesDto> notes = notesService.getUserRecycleBinNotes(userId);
+		List<NotesDto> notes = notesService.getUserRecycleBinNotes();  // userId - use when no logged in user
 
 		if (CollectionUtils.isEmpty(notes)) {
 			return CommonUtil.createBuildResponseMessage("Notes not available", HttpStatus.OK);
@@ -161,12 +171,19 @@ public class NotesController {
 	// Delete all data
 	@DeleteMapping("/delete-recycle")
 	@PreAuthorize("hasRole('USER')")
-	public ResponseEntity<?> emptyRecycleBin() throws Exception {
+	public ResponseEntity<?> emptyUserRecycleBin() throws Exception {
 
-		// Currently logged in user
-		Integer userId = 2;
+		//Static  user id
+		//Integer userId = 2;
 		
-		notesService.emptyRecycleBin(userId);
+		//logged in user id
+		Integer userId = CommonUtil.getLoggedInUser().getId();
+		
+		//For static user id
+		//notesService.emptyRecycleBin(userId);
+		
+		//For logged in user
+		notesService.emptyRecycleBin();
 
 		return CommonUtil.createBuildResponseMessage("Delete success", HttpStatus.OK);
 	}
@@ -201,8 +218,12 @@ public class NotesController {
 		@PreAuthorize("hasRole('USER')")
 		public ResponseEntity<?> getUserFavouriteNote() throws Exception {
 
-			// Currently logged in user
-			Integer userId = 2;
+			//Static user id
+			//Integer userId = 2;
+			
+			//logged in user id
+			Integer userId = CommonUtil.getLoggedInUser().getId();
+			
 			List<FavouritNoteDto> userFaouriteNotes = notesService.getUserFaouriteNotes();
 			
 			if(CollectionUtils.isEmpty(userFaouriteNotes))
@@ -219,7 +240,7 @@ public class NotesController {
 		@PreAuthorize("hasRole('USER')")
 		public ResponseEntity<?> copyNotes(@PathVariable Integer id) throws Exception {
 
-			// Currently logged in user
+			//Currently logged in user
 			//Integer userId = 2;
 			
 

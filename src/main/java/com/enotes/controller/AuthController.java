@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.enotes.dto.LoginRequest;
 import com.enotes.dto.LoginResponse;
-import com.enotes.dto.UserDto;
+import com.enotes.dto.UserRequest;
 import com.enotes.service.UserService;
 import com.enotes.util.CommonUtil;
 
@@ -31,7 +31,7 @@ public class AuthController {
 	/*
 	//Dynamic url 1
 	@PostMapping("/")
-	public ResponseEntity<?> registerUser(@RequestBody UserDto userDto) throws Exception
+	public ResponseEntity<?> registerUser(@RequestBody UserRequest userDto) throws Exception
 	{
 		//Call register method from User service
 		Boolean register = userService.register(userDto);
@@ -49,7 +49,7 @@ public class AuthController {
 	
 	//Dynamic url 2
 	@PostMapping("/")
-	public ResponseEntity<?> registerUser(@RequestBody UserDto userDto, HttpServletRequest request) throws Exception
+	public ResponseEntity<?> registerUser(@RequestBody UserRequest userDto, HttpServletRequest request) throws Exception
 	{
 		//Fully dynamic url
 		 String url = CommonUtil.getUrl(request);

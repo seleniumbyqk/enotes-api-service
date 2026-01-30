@@ -1,10 +1,8 @@
 package com.enotes.dto;
 
-import com.enotes.entity.FavouritNote.Builder;
-
 public class LoginResponse {
 
-	private UserRequest user;
+	private UserResponse user;
 	
 	private String token;
 
@@ -12,17 +10,17 @@ public class LoginResponse {
 		super();
 	}
 
-	public LoginResponse(UserRequest user, String token) {
+	public LoginResponse(UserResponse user, String token) {
 		super();
 		this.user = user;
 		this.token = token;
 	}
 
-	public UserRequest getUser() {
+	public UserResponse getUser() {
 		return user;
 	}
 
-	public void setUser(UserRequest user) {
+	public void setUser(UserResponse user) {
 		this.user = user;
 	}
 
@@ -56,11 +54,11 @@ public class LoginResponse {
 	//Builder class
 	public static class Builder{
 		
-		private UserRequest user;
+		private UserResponse user;
 		
 		private String token;
 		
-		public Builder user(UserRequest user)
+		public Builder user(UserResponse user)
 		{
 			this.user = user;
 			return this;

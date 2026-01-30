@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.enotes.dto.LoginRequest;
 import com.enotes.dto.LoginResponse;
 import com.enotes.dto.UserRequest;
-import com.enotes.service.UserService;
+import com.enotes.service.AuthService;
 import com.enotes.util.CommonUtil;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,7 +26,7 @@ public class AuthController {
 	//Auth + User Controller
 	
 	@Autowired
-	private UserService userService;
+	private AuthService userService;
 	
 	/*
 	//Dynamic url 1

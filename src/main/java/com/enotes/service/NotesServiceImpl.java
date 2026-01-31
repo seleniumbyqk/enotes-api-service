@@ -329,6 +329,27 @@ public class NotesServiceImpl implements NotesService {
 
 		return notes;
 	}
+	
+	//Search notes
+	@Override
+	public NotesResponse getAllNotesByUserSearch(Integer pageNo, Integer pageSize, String keyword) {
+		// TODO Auto-generated method stub
+		
+		Integer userId = CommonUtil.getLoggedInUser().getId();
+
+		Pageable pageable = PageRequest.of(pageNo, pageSize);
+
+		Page<Notes> pageNotes = notesRepository.searchNotes(keyword, userId, pageable);
+
+		List<NotesDto> notesDto = pageNotes.getContent().stream().map(n -> modelMapper.map(n, NotesDto.class)).toList();
+
+		NotesResponse notes = NotesResponse.builder().notes(notesDto).pageNo(pageNotes.getNumber())
+				.pageSize(pageNotes.getSize()).totalElements(pageNotes.getTotalElements())
+				.totalPages(pageNotes.getTotalPages()).first(pageNotes.isFirst()).last(pageNotes.isLast()).build();
+
+		return notes;
+		
+	}
 
 	// Data delete from database and recycle bin
 	@Override
@@ -344,6 +365,8 @@ public class NotesServiceImpl implements NotesService {
 
 		notesRepository.save(notes);
 	}
+
+	
 
 	@Override
 	public void restoreNotes(Integer id) throws Exception {

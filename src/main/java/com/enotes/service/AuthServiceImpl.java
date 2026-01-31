@@ -86,7 +86,7 @@ public class AuthServiceImpl implements AuthService{
 		{
 			//Send email logic
 			//Add dependency starter mail in pom.xml
-			emailSend(saveUser, url);
+			emailSendForRegister(saveUser, url);
 			
 			return true;
 		}
@@ -95,7 +95,7 @@ public class AuthServiceImpl implements AuthService{
 		return false;
 	}
 
-	private void emailSend(User saveUser, String url) throws Exception {
+	private void emailSendForRegister(User saveUser, String url) throws Exception {
 		// TODO Auto-generated method stub
 		//Static url
 		

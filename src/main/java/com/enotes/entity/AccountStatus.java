@@ -15,17 +15,24 @@ public class AccountStatus {
 	private Boolean isActive;
 	
 	private String verificationCode;
+	
+	private String passwordResetToken;
 
 	public AccountStatus() {
 		super();
 	}
 
-	public AccountStatus(Integer id, Boolean isActive, String verificationCode) {
+	
+
+	public AccountStatus(Integer id, Boolean isActive, String verificationCode, String passwordResetToken) {
 		super();
 		this.id = id;
 		this.isActive = isActive;
 		this.verificationCode = verificationCode;
+		this.passwordResetToken = passwordResetToken;
 	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -50,10 +57,25 @@ public class AccountStatus {
 	public void setVerificationCode(String verificationCode) {
 		this.verificationCode = verificationCode;
 	}
+	
+	
+
+	public String getPasswordResetToken() {
+		return passwordResetToken;
+	}
+
+
+
+	public void setPasswordResetToken(String passwordResetToken) {
+		this.passwordResetToken = passwordResetToken;
+	}
+
+
 
 	@Override
 	public String toString() {
-		return "AccountStatus [id=" + id + ", isActive=" + isActive + ", verificationCode=" + verificationCode + "]";
+		return "AccountStatus [id=" + id + ", isActive=" + isActive + ", verificationCode=" + verificationCode
+				+ ", passwordResetToken=" + passwordResetToken + "]";
 	}
 	
 	
@@ -63,6 +85,7 @@ public class AccountStatus {
 		this.id = builder.id;
 		this.isActive = builder.isActive;
 		this.verificationCode = builder.verificationCode;
+		this.passwordResetToken = builder.passwordResetToken;
 	}
 	
 	public static Builder builder()
@@ -75,6 +98,7 @@ public class AccountStatus {
 		private Integer id;
 		private Boolean isActive;
 		private String verificationCode;
+		private String passwordResetToken;
 		
 		public Builder id(Integer id)
 		{
@@ -91,6 +115,12 @@ public class AccountStatus {
 		public Builder verificationCode(String verificationCode)
 		{
 			this.verificationCode = verificationCode;
+			return this;
+		}
+		
+		public Builder passwordResetToken(String passwordResetToken)
+		{
+			this.passwordResetToken = passwordResetToken;
 			return this;
 		}
 		

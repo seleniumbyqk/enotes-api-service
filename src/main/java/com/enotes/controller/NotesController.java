@@ -120,6 +120,32 @@ public class NotesController {
 		return CommonUtil.createBuildResponse(notes, HttpStatus.OK);
 
 	}
+	
+	//Search notes
+	@GetMapping("/search")
+	@PreAuthorize("hasRole('USER')")
+	public ResponseEntity<?> searchNotes(
+			// default value provide
+			@RequestParam(name = "key", defaultValue = "") String key,
+			@RequestParam(name = "pageNo", defaultValue = "0") Integer pageNo,
+			@RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
+		
+		//Static user id
+		//Integer userId = 2;
+		
+		//logged in user id
+		Integer userId = CommonUtil.getLoggedInUser().getId();
+
+		NotesResponse notes = notesService.getAllNotesByUserSearch(pageNo, pageSize, key);   //userId - when no logged in user
+
+		/*
+		 * //If true if(CollectionUtils.isEmpty(notes)) { //Give message return
+		 * ResponseEntity.noContent().build(); }
+		 */
+		return CommonUtil.createBuildResponse(notes, HttpStatus.OK);
+
+	}
+	
 
 	// Data delete from database and recycle bin
 	@GetMapping("/delete/{id}")

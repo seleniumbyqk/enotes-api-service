@@ -1,5 +1,7 @@
 package com.enotes.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,7 @@ import jakarta.servlet.http.HttpServletRequest;
 @RequestMapping("/api/v1/auth")
 public class AuthController {
 
+	Logger log = LoggerFactory.getLogger(HomeController.class);
 	
 	//Auth + User Controller
 	
@@ -48,9 +51,11 @@ public class AuthController {
 	*/
 	
 	//Dynamic url 2
-	@PostMapping("/")
+	@PostMapping("/register")
 	public ResponseEntity<?> registerUser(@RequestBody UserRequest userDto, HttpServletRequest request) throws Exception
 	{
+		log.info("AuthController : registerUser() : Execution Start");
+		
 		//Fully dynamic url
 		 String url = CommonUtil.getUrl(request);
 		
@@ -59,13 +64,18 @@ public class AuthController {
 		Boolean register = userService.register(userDto, url);
 		
 		//Check true or false and throw error
-		if(register)
+		if(!register)
 		{
-			return CommonUtil.createBuildResponseMessage("Register success", HttpStatus.CREATED);
+			log.info("AuthController : registerUser() : Register Failed");
+			
+			//If false
+			return CommonUtil.createErrorResponseMessage("Register failed", HttpStatus.INTERNAL_SERVER_ERROR);
+			
 		}
 		
-		//If false
-		return CommonUtil.createErrorResponseMessage("Register failed", HttpStatus.INTERNAL_SERVER_ERROR);
+		log.info("AuthController : registerUser() : Execution End");
+		
+		return CommonUtil.createBuildResponseMessage("Register success", HttpStatus.CREATED);
 	}
 	
 	

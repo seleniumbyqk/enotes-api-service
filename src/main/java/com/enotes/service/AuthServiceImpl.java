@@ -5,6 +5,8 @@ import java.util.UUID;
 
 import org.jspecify.annotations.Nullable;
 import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
 import com.enotes.config.security.CustomUserDetails;
+import com.enotes.controller.HomeController;
 import com.enotes.dto.EmailRequest;
 import com.enotes.dto.LoginRequest;
 import com.enotes.dto.LoginResponse;
@@ -29,6 +32,8 @@ import com.enotes.util.Validation;
 @Service
 public class AuthServiceImpl implements AuthService{
 
+	//Logger implementation manually
+	Logger log = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -58,6 +63,8 @@ public class AuthServiceImpl implements AuthService{
 	public Boolean register(UserRequest userDto, String url) throws Exception {
 		// TODO Auto-generated method stub
 		
+		log.info("AuthServiceImpl : register() : Start");
+		
 		//Apply validation
 		validation.userValidation(userDto);
 		
@@ -82,17 +89,25 @@ public class AuthServiceImpl implements AuthService{
 		User saveUser = userRepository.save(user);
 		
 		//if user is empty throw exception
-		if(!ObjectUtils.isEmpty(saveUser))
+		if(ObjectUtils.isEmpty(saveUser))
 		{
-			//Send email logic
-			//Add dependency starter mail in pom.xml
-			emailSendForRegister(saveUser, url);
 			
-			return true;
+			log.info("AuthServiceImpl : register() : Error : User not saved");
+			
+			return false;
 		}
 		
+		log.info("Message : {}", "User register success");
+		//Send email logic
+		//Add dependency starter mail in pom.xml
+		emailSendForRegister(saveUser, url);
+		
+		log.info("AuthServiceImpl : register() : Email send success");
+		
+		log.info("AuthServiceImpl : register() : End");
+		
 		//If user empty
-		return false;
+		return true;
 	}
 
 	private void emailSendForRegister(User saveUser, String url) throws Exception {

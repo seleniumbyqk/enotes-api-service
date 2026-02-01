@@ -13,6 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/api/v1/notes")
 public interface NotesControllerEndpoint {
 
+	//No need to mention @RequestBody, @PathVariable, @RequestParam in implementation classes
+	
 	@PostMapping("/")
 	@PreAuthorize("hasRole('USER')") 
 	public ResponseEntity<?> saveNotes(@RequestParam String notes, @RequestParam(required = false) MultipartFile file)

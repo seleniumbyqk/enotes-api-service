@@ -14,6 +14,8 @@ import jakarta.servlet.http.HttpServletRequest;
 @RequestMapping("/api/v1/home")
 public interface HomeControllerEndpoint {
 
+	//No need to mention @RequestBody, @PathVariable, @RequestParam in implementation classes
+	
 	@GetMapping("/verify")
 	public ResponseEntity<?> verifyUserAccount(@RequestParam Integer uid, @RequestParam String code) throws Exception;
 	

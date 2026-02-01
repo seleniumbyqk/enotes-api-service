@@ -13,6 +13,8 @@ import com.enotes.dto.TodoDto;
 @RequestMapping("/api/v1/todo")
 public interface TodoControllerEndpoint {
 
+	//No need to mention @RequestBody, @PathVariable, @RequestParam in implementation classes
+	
 	//@Requestbody - convert json to object
 		@PostMapping("/")
 		@PreAuthorize("hasRole('USER')")

@@ -36,7 +36,7 @@ public class HomeController implements HomeControllerEndpoint{
 	
 	//@GetMapping("/verify")
 	@Override
-	public ResponseEntity<?> verifyUserAccount(@RequestParam Integer uid, @RequestParam String code) throws Exception
+	public ResponseEntity<?> verifyUserAccount(Integer uid, String code) throws Exception
 	{
 		log.info("HomeController : verifyUserAccount() :Execution start");
 		
@@ -58,7 +58,7 @@ public class HomeController implements HomeControllerEndpoint{
 	//Email for password reset
 	//@GetMapping("/send-email-reset")
 	@Override
-	public ResponseEntity<?> sendEmailForPasswordReset(@RequestParam String email, HttpServletRequest request) throws Exception
+	public ResponseEntity<?> sendEmailForPasswordReset(String email, HttpServletRequest request) throws Exception
 	{
 		//Call method from user service
 		userService.sendEmailForPasswordReset(email,request);
@@ -70,7 +70,7 @@ public class HomeController implements HomeControllerEndpoint{
 	//Verify password link
 	//@GetMapping("/verify-password-link")
 	@Override
-	public ResponseEntity<?> verifyPasswordResetLink(@RequestParam Integer uid, @RequestParam String code) throws Exception
+	public ResponseEntity<?> verifyPasswordResetLink(Integer uid, String code) throws Exception
 	{
 		
 		//Call method
@@ -82,7 +82,7 @@ public class HomeController implements HomeControllerEndpoint{
 	//reset password
 	//@PostMapping("/reset-password")
 	@Override
-	public ResponseEntity<?> resetPassword(@RequestBody PasswordResetRequest passwordResetRequest) throws Exception
+	public ResponseEntity<?> resetPassword(PasswordResetRequest passwordResetRequest) throws Exception
 	{
 		
 		//call method

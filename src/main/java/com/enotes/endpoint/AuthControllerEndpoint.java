@@ -13,6 +13,8 @@ import jakarta.servlet.http.HttpServletRequest;
 @RequestMapping("/api/v1/auth")
 public interface AuthControllerEndpoint {
 
+	//No need to mention @RequestBody, @PathVariable, @RequestParam in implementation classes
+	
 	@PostMapping("/register")
 	public ResponseEntity<?> registerUser(@RequestBody UserRequest userDto, HttpServletRequest request) throws Exception;
 	

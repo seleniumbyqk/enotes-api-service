@@ -11,6 +11,8 @@ import com.enotes.dto.PasswordChangeRequest;
 @RequestMapping("/api/v1/user")
 public interface UserControllerEndpoint {
 
+	//No need to mention @RequestBody, @PathVariable, @RequestParam in implementation classes
+	
 	@GetMapping("/profile")
 	public ResponseEntity<?> getProfile();
 	

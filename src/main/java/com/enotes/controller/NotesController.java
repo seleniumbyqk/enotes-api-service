@@ -54,7 +54,7 @@ public class NotesController implements NotesControllerEndpoint{
 	//@PostMapping("/")
 	//@PreAuthorize("hasRole('USER')") 
 	@Override
-	public ResponseEntity<?> saveNotes(@RequestParam String notes, @RequestParam(required = false) MultipartFile file)
+	public ResponseEntity<?> saveNotes(String notes,  MultipartFile file)
 			throws Exception {
 		Boolean saveNotes = notesService.saveNotes(notes, file);
 
@@ -87,7 +87,7 @@ public class NotesController implements NotesControllerEndpoint{
 	//@GetMapping("/download/{id}")
 	//@PreAuthorize("hasAnyRole('USER', 'ADMIN')") 
 	@Override
-	public ResponseEntity<?> downloadFile(@PathVariable Integer id) throws Exception {
+	public ResponseEntity<?> downloadFile(Integer id) throws Exception {
 		FileDetails fileDetails = notesService.getFileDetails(id);
 
 		byte[] data = notesService.downloadFile(fileDetails);
@@ -107,8 +107,8 @@ public class NotesController implements NotesControllerEndpoint{
 	@Override
 	public ResponseEntity<?> getAllNotesByUser(
 			// default value provide
-			@RequestParam(name = "pageNo", defaultValue = "0") Integer pageNo,
-			@RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
+			Integer pageNo,
+			Integer pageSize) {
 		
 		//Static user id
 		//Integer userId = 2;
@@ -132,9 +132,9 @@ public class NotesController implements NotesControllerEndpoint{
 	@Override
 	public ResponseEntity<?> searchNotes(
 			// default value provide
-			@RequestParam(name = "key", defaultValue = "") String key,
-			@RequestParam(name = "pageNo", defaultValue = "0") Integer pageNo,
-			@RequestParam(name = "pageSize", defaultValue = "5") Integer pageSize) {
+			String key,
+			Integer pageNo,
+			Integer pageSize) {
 		
 		//Static user id
 		//Integer userId = 2;
@@ -157,7 +157,7 @@ public class NotesController implements NotesControllerEndpoint{
 	//@GetMapping("/delete/{id}")
 	//@PreAuthorize("hasRole('USER')")
 	@Override
-	public ResponseEntity<?> deleteNotes(@PathVariable Integer id) throws Exception {
+	public ResponseEntity<?> deleteNotes(Integer id) throws Exception {
 		notesService.softDeleteNotes(id);
 
 		return CommonUtil.createBuildResponseMessage("Delete success", HttpStatus.OK);
@@ -167,7 +167,7 @@ public class NotesController implements NotesControllerEndpoint{
 	//@GetMapping("/restore/{id}")
 	//@PreAuthorize("hasRole('USER')")
 	@Override
-	public ResponseEntity<?> restoreNotes(@PathVariable Integer id) throws Exception {
+	public ResponseEntity<?> restoreNotes(Integer id) throws Exception {
 		notesService.restoreNotes(id);
 
 		return CommonUtil.createBuildResponseMessage("Delete Restore success", HttpStatus.OK);
@@ -198,7 +198,7 @@ public class NotesController implements NotesControllerEndpoint{
 	//@DeleteMapping("/delete/{id}")
 	//@PreAuthorize("hasRole('USER')")
 	@Override
-	public ResponseEntity<?> hardDeleteNotes(@PathVariable Integer id) throws Exception {
+	public ResponseEntity<?> hardDeleteNotes(Integer id) throws Exception {
 		notesService.hardDeleteNotes(id);
 
 		return CommonUtil.createBuildResponseMessage("Delete success", HttpStatus.OK);
@@ -229,7 +229,7 @@ public class NotesController implements NotesControllerEndpoint{
 	//@GetMapping("/fav/{noteId}")
 	//@PreAuthorize("hasRole('USER')")
 	@Override
-	public ResponseEntity<?> favouriteNote(@PathVariable Integer noteId) throws Exception {
+	public ResponseEntity<?> favouriteNote(Integer noteId) throws Exception {
 
 		// Currently logged in user
 		//Integer userId = 2;
@@ -243,7 +243,7 @@ public class NotesController implements NotesControllerEndpoint{
 		//@DeleteMapping("/un-fav/{favNoteId}")
 		//@PreAuthorize("hasRole('USER')")
 	    @Override
-		public ResponseEntity<?> unFavouriteNote(@PathVariable Integer favNoteId) throws Exception {
+		public ResponseEntity<?> unFavouriteNote(Integer favNoteId) throws Exception {
 
 			// Currently logged in user
 			//Integer userId = 2;
@@ -279,7 +279,7 @@ public class NotesController implements NotesControllerEndpoint{
 		//@GetMapping("/copy/{id}") 
 		//@PreAuthorize("hasRole('USER')") 
 	    @Override
-		public ResponseEntity<?> copyNotes(@PathVariable Integer id) throws Exception {
+		public ResponseEntity<?> copyNotes(Integer id) throws Exception {
 
 			//Currently logged in user 
 			//Integer userId = 2; 

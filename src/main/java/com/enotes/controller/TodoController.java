@@ -37,7 +37,7 @@ public class TodoController implements TodoControllerEndpoint{
 	//@PostMapping("/")
 	//@PreAuthorize("hasRole('USER')")
     @Override
-	public ResponseEntity<?> saveTodo(@RequestBody TodoDto todo) throws Exception
+	public ResponseEntity<?> saveTodo(TodoDto todo) throws Exception
 	{
 		Boolean saveTodo = todoService.saveTodo(todo);
 		
@@ -55,7 +55,7 @@ public class TodoController implements TodoControllerEndpoint{
 	//@GetMapping("/{id}")
 	//@PreAuthorize("hasRole('USER')")
     @Override
-	public ResponseEntity<?> getTodoById(@PathVariable Integer id) throws Exception
+	public ResponseEntity<?> getTodoById(Integer id) throws Exception
 	{
 		TodoDto todoById = todoService.getTodoById(id);
 		

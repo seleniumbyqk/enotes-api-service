@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.enotes.dto.CategoryDto;
 import com.enotes.dto.CategoryResponse;
+import com.enotes.endpoint.CategoryControllerEndpoint;
 import com.enotes.entity.Category;
 import com.enotes.exception.ResourceNotFoundException;
 import com.enotes.service.CategoryService;
@@ -26,8 +27,8 @@ import com.enotes.util.CommonUtil;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1/category")
-public class CategoryController {
+//@RequestMapping("/api/v1/category")
+public class CategoryController implements CategoryControllerEndpoint{
 
 	@Autowired
 	private CategoryService categoryService;
@@ -52,8 +53,9 @@ public class CategoryController {
 	
 	
 	//With DTO
-	@PostMapping("/save")
-	@PreAuthorize("hasRole('ADMIN')")         //Only admin can authorize
+	//@PostMapping("/save")
+	//@PreAuthorize("hasRole('ADMIN')")         //Only admin can authorize
+	@Override
 	public ResponseEntity<?> saveCategory(@Valid @RequestBody CategoryDto categoryDto)
 	{
 		//String nm = null;
@@ -97,8 +99,9 @@ public class CategoryController {
 	
 	
 	//With DTO - All Category
-	@GetMapping("/")
-	@PreAuthorize("hasRole('ADMIN')") 
+	//@GetMapping("/")
+	//@PreAuthorize("hasRole('ADMIN')") 
+	@Override
 	public ResponseEntity<?> getAllCategory()
 	{
 		List<CategoryDto> allCategory = categoryService.getAllCategory();
@@ -116,9 +119,10 @@ public class CategoryController {
 	}
 	
 	//With DTO - All Category from category response
-		@GetMapping("/active")
+		//@GetMapping("/active")
 		//@PreAuthorize("hasRole('USER')")   //Only for user
-		@PreAuthorize("hasAnyRole('USER', 'ADMIN')")   //Multiple role
+		//@PreAuthorize("hasAnyRole('USER', 'ADMIN')")   //Multiple role
+	    @Override
 		public ResponseEntity<?> getActiveCategory()
 		{
 			List<CategoryResponse> allCategory = categoryService.getActiveCategory();
@@ -136,8 +140,9 @@ public class CategoryController {
 		}
 	
 		
-		@GetMapping("/{id}")
-		@PreAuthorize("hasRole('ADMIN')") 
+		//@GetMapping("/{id}")
+		//@PreAuthorize("hasRole('ADMIN')") 
+		@Override
 		public ResponseEntity<?> getCategoryDetailsById(@PathVariable Integer id) throws ResourceNotFoundException
 		{
 			//When we will use try-catch block then custom exception will run otherwise 
@@ -184,8 +189,9 @@ public class CategoryController {
 		}
 		
 		
-		@DeleteMapping("/{id}")
-		@PreAuthorize("hasRole('ADMIN')") 
+		//@DeleteMapping("/{id}")
+		//@PreAuthorize("hasRole('ADMIN')") 
+		@Override
 		public ResponseEntity<?> deleteCategoryDetailsById(@PathVariable Integer id)
 		{
 			boolean deleted = categoryService.deleteCategoryDetailsById(id);

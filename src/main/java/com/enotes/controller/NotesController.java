@@ -21,13 +21,14 @@ import org.springframework.web.multipart.MultipartFile;
 import com.enotes.dto.FavouritNoteDto;
 import com.enotes.dto.NotesDto;
 import com.enotes.dto.NotesResponse;
+import com.enotes.endpoint.NotesControllerEndpoint;
 import com.enotes.entity.FileDetails;
 import com.enotes.service.NotesService;
 import com.enotes.util.CommonUtil;
 
 @RestController
-@RequestMapping("/api/v1/notes")
-public class NotesController {
+//@RequestMapping("/api/v1/notes")
+public class NotesController implements NotesControllerEndpoint{
 
 	@Autowired
 	private NotesService notesService;
@@ -50,8 +51,9 @@ public class NotesController {
 	 */
 
 	// To save file in folder and save name in database only
-	@PostMapping("/")
-	@PreAuthorize("hasRole('USER')") 
+	//@PostMapping("/")
+	//@PreAuthorize("hasRole('USER')") 
+	@Override
 	public ResponseEntity<?> saveNotes(@RequestParam String notes, @RequestParam(required = false) MultipartFile file)
 			throws Exception {
 		Boolean saveNotes = notesService.saveNotes(notes, file);
@@ -66,8 +68,9 @@ public class NotesController {
 
 	}
 
-	@GetMapping("/")
-	@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+	//@GetMapping("/")
+	//@PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+	@Override
 	public ResponseEntity<?> getAllNotes() {
 		List<NotesDto> notes = notesService.getAllNotes();
 
@@ -81,8 +84,9 @@ public class NotesController {
 
 	}
 
-	@GetMapping("/download/{id}")
-	@PreAuthorize("hasAnyRole('USER', 'ADMIN')") 
+	//@GetMapping("/download/{id}")
+	//@PreAuthorize("hasAnyRole('USER', 'ADMIN')") 
+	@Override
 	public ResponseEntity<?> downloadFile(@PathVariable Integer id) throws Exception {
 		FileDetails fileDetails = notesService.getFileDetails(id);
 
@@ -98,8 +102,9 @@ public class NotesController {
 		return ResponseEntity.ok().headers(headers).body(data);
 	}
 
-	@GetMapping("/user-notes")
-	@PreAuthorize("hasRole('USER')")
+	//@GetMapping("/user-notes")
+	//@PreAuthorize("hasRole('USER')")
+	@Override
 	public ResponseEntity<?> getAllNotesByUser(
 			// default value provide
 			@RequestParam(name = "pageNo", defaultValue = "0") Integer pageNo,
@@ -122,8 +127,9 @@ public class NotesController {
 	}
 	
 	//Search notes
-	@GetMapping("/search")
-	@PreAuthorize("hasRole('USER')")
+	//@GetMapping("/search")
+	//@PreAuthorize("hasRole('USER')")
+	@Override
 	public ResponseEntity<?> searchNotes(
 			// default value provide
 			@RequestParam(name = "key", defaultValue = "") String key,
@@ -148,8 +154,9 @@ public class NotesController {
 	
 
 	// Data delete from database and recycle bin
-	@GetMapping("/delete/{id}")
-	@PreAuthorize("hasRole('USER')")
+	//@GetMapping("/delete/{id}")
+	//@PreAuthorize("hasRole('USER')")
+	@Override
 	public ResponseEntity<?> deleteNotes(@PathVariable Integer id) throws Exception {
 		notesService.softDeleteNotes(id);
 
@@ -157,8 +164,9 @@ public class NotesController {
 	}
 
 	// Restore data in database
-	@GetMapping("/restore/{id}")
-	@PreAuthorize("hasRole('USER')")
+	//@GetMapping("/restore/{id}")
+	//@PreAuthorize("hasRole('USER')")
+	@Override
 	public ResponseEntity<?> restoreNotes(@PathVariable Integer id) throws Exception {
 		notesService.restoreNotes(id);
 
@@ -166,8 +174,9 @@ public class NotesController {
 	}
 
 	// Data check in recycle bin which are deleted
-	@GetMapping("/recycle-bin")
-	@PreAuthorize("hasRole('USER')")
+	//@GetMapping("/recycle-bin")
+	//@PreAuthorize("hasRole('USER')")
+	@Override
 	public ResponseEntity<?> getUserRecycleBinNotes() throws Exception {
 		
 		//Static user id
@@ -186,8 +195,9 @@ public class NotesController {
 	}
 
 	// Data delete from recycle bin first soft delete and then hard delete
-	@DeleteMapping("/delete/{id}")
-	@PreAuthorize("hasRole('USER')")
+	//@DeleteMapping("/delete/{id}")
+	//@PreAuthorize("hasRole('USER')")
+	@Override
 	public ResponseEntity<?> hardDeleteNotes(@PathVariable Integer id) throws Exception {
 		notesService.hardDeleteNotes(id);
 
@@ -195,8 +205,9 @@ public class NotesController {
 	}
 
 	// Delete all data
-	@DeleteMapping("/delete-recycle")
-	@PreAuthorize("hasRole('USER')")
+	//@DeleteMapping("/delete-recycle")
+	//@PreAuthorize("hasRole('USER')")
+	@Override
 	public ResponseEntity<?> emptyUserRecycleBin() throws Exception {
 
 		//Static  user id
@@ -215,8 +226,9 @@ public class NotesController {
 	}
 
 	// Favorite notes
-	@GetMapping("/fav/{noteId}")
-	@PreAuthorize("hasRole('USER')")
+	//@GetMapping("/fav/{noteId}")
+	//@PreAuthorize("hasRole('USER')")
+	@Override
 	public ResponseEntity<?> favouriteNote(@PathVariable Integer noteId) throws Exception {
 
 		// Currently logged in user
@@ -228,8 +240,9 @@ public class NotesController {
 	}
 	
 	// Un Favorite notes
-		@DeleteMapping("/un-fav/{favNoteId}")
-		@PreAuthorize("hasRole('USER')")
+		//@DeleteMapping("/un-fav/{favNoteId}")
+		//@PreAuthorize("hasRole('USER')")
+	    @Override
 		public ResponseEntity<?> unFavouriteNote(@PathVariable Integer favNoteId) throws Exception {
 
 			// Currently logged in user
@@ -240,8 +253,9 @@ public class NotesController {
 		}
 		
 		// Get User Favorite note
-		@GetMapping("/fav-note")
-		@PreAuthorize("hasRole('USER')")
+		//@GetMapping("/fav-note")
+		//@PreAuthorize("hasRole('USER')")
+	    @Override
 		public ResponseEntity<?> getUserFavouriteNote() throws Exception {
 
 			//Static user id
@@ -262,21 +276,22 @@ public class NotesController {
 		
 		
 		// copy notes
-		@GetMapping("/copy/{id}")
-		@PreAuthorize("hasRole('USER')")
+		//@GetMapping("/copy/{id}") 
+		//@PreAuthorize("hasRole('USER')") 
+	    @Override
 		public ResponseEntity<?> copyNotes(@PathVariable Integer id) throws Exception {
 
-			//Currently logged in user
-			//Integer userId = 2;
+			//Currently logged in user 
+			//Integer userId = 2; 
 			
 
-			//TODO: Need to check User Validation
+			//TODO: Need to check User Validation 
 
 			Boolean copyNotes = notesService.copyNotes(id);
 			
 			if(copyNotes)
 			{
-				return CommonUtil.createBuildResponseMessage("copied success", HttpStatus.CREATED);
+				return CommonUtil.createBuildResponseMessage("copied success", HttpStatus.CREATED); 
 			}
 
 			return CommonUtil.createErrorResponseMessage("copy failed. Try Again", HttpStatus.INTERNAL_SERVER_ERROR);

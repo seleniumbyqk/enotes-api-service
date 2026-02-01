@@ -15,13 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.enotes.dto.TodoDto;
+import com.enotes.endpoint.TodoControllerEndpoint;
 import com.enotes.service.TodoService;
 import com.enotes.service.TodoServiceImpl;
 import com.enotes.util.CommonUtil;
 
 @RestController
-@RequestMapping("/api/v1/todo")
-public class TodoController {
+//@RequestMapping("/api/v1/todo")
+public class TodoController implements TodoControllerEndpoint{
 
     private final TodoServiceImpl todoServiceImpl;
 
@@ -33,8 +34,9 @@ public class TodoController {
     }
 	
 	//@Requestbody - convert json to object
-	@PostMapping("/")
-	@PreAuthorize("hasRole('USER')")
+	//@PostMapping("/")
+	//@PreAuthorize("hasRole('USER')")
+    @Override
 	public ResponseEntity<?> saveTodo(@RequestBody TodoDto todo) throws Exception
 	{
 		Boolean saveTodo = todoService.saveTodo(todo);
@@ -50,8 +52,9 @@ public class TodoController {
 	}
 	
 	
-	@GetMapping("/{id}")
-	@PreAuthorize("hasRole('USER')")
+	//@GetMapping("/{id}")
+	//@PreAuthorize("hasRole('USER')")
+    @Override
 	public ResponseEntity<?> getTodoById(@PathVariable Integer id) throws Exception
 	{
 		TodoDto todoById = todoService.getTodoById(id);
@@ -60,8 +63,9 @@ public class TodoController {
 	}
 	
 	
-	@PostMapping("/list")
-	@PreAuthorize("hasRole('USER')")
+	//@PostMapping("/list")
+	//@PreAuthorize("hasRole('USER')")
+    @Override
 	public ResponseEntity<?> getTodoByUser() throws Exception
 	{
 		List<TodoDto> todoList = todoService.getTodoByUser();

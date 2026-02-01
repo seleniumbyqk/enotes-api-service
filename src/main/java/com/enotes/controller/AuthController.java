@@ -15,14 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.enotes.dto.LoginRequest;
 import com.enotes.dto.LoginResponse;
 import com.enotes.dto.UserRequest;
+import com.enotes.endpoint.AuthControllerEndpoint;
 import com.enotes.service.AuthService;
 import com.enotes.util.CommonUtil;
 
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping("/api/v1/auth")
-public class AuthController {
+//@RequestMapping("/api/v1/auth")
+public class AuthController implements AuthControllerEndpoint{
 
 	Logger log = LoggerFactory.getLogger(HomeController.class);
 	
@@ -51,7 +52,8 @@ public class AuthController {
 	*/
 	
 	//Dynamic url 2
-	@PostMapping("/register")
+	//@PostMapping("/register")
+	@Override
 	public ResponseEntity<?> registerUser(@RequestBody UserRequest userDto, HttpServletRequest request) throws Exception
 	{
 		log.info("AuthController : registerUser() : Execution Start");
@@ -79,7 +81,8 @@ public class AuthController {
 	}
 	
 	
-	@PostMapping("/login")
+	//@PostMapping("/login")
+	@Override
 	public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest)
 	{
 		

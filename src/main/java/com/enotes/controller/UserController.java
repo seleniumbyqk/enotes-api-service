@@ -12,13 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.enotes.dto.PasswordChangeRequest;
 import com.enotes.dto.UserResponse;
+import com.enotes.endpoint.UserControllerEndpoint;
 import com.enotes.entity.User;
 import com.enotes.service.UserService;
 import com.enotes.util.CommonUtil;
 
 @RestController
-@RequestMapping("/api/v1/user")
-public class UserController {
+//@RequestMapping("/api/v1/user")
+public class UserController implements UserControllerEndpoint{
 
 	
 	@Autowired
@@ -27,7 +28,8 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@GetMapping("/profile")
+	//@GetMapping("/profile")
+	@Override
 	public ResponseEntity<?> getProfile()
 	{
 		try
@@ -46,7 +48,8 @@ public class UserController {
 	
 	
 	//Change password
-	@PostMapping("/change-password")
+	//@PostMapping("/change-password")
+	@Override
 	public ResponseEntity<?> changePassword(@RequestBody PasswordChangeRequest passwordChangeRequest)
 	{
 		

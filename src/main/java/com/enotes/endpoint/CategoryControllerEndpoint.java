@@ -17,6 +17,9 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/v1/category")
 public interface CategoryControllerEndpoint {
 
+
+	//No need to mention @RequestBody, @PathVariable, @RequestParam in implementation classes
+	
 	@PostMapping("/save")
 	@PreAuthorize("hasRole('ADMIN')")         //Only admin can authorize
 	public ResponseEntity<?> saveCategory(@Valid @RequestBody CategoryDto categoryDto);

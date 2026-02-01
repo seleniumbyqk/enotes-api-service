@@ -56,7 +56,7 @@ public class CategoryController implements CategoryControllerEndpoint{
 	//@PostMapping("/save")
 	//@PreAuthorize("hasRole('ADMIN')")         //Only admin can authorize
 	@Override
-	public ResponseEntity<?> saveCategory(@Valid @RequestBody CategoryDto categoryDto)
+	public ResponseEntity<?> saveCategory(CategoryDto categoryDto)
 	{
 		//String nm = null;
 		//nm.toUpperCase();
@@ -143,7 +143,7 @@ public class CategoryController implements CategoryControllerEndpoint{
 		//@GetMapping("/{id}")
 		//@PreAuthorize("hasRole('ADMIN')") 
 		@Override
-		public ResponseEntity<?> getCategoryDetailsById(@PathVariable Integer id) throws ResourceNotFoundException
+		public ResponseEntity<?> getCategoryDetailsById(Integer id) throws ResourceNotFoundException
 		{
 			//When we will use try-catch block then custom exception will run otherwise 
 			//global exception handler will run
@@ -192,7 +192,7 @@ public class CategoryController implements CategoryControllerEndpoint{
 		//@DeleteMapping("/{id}")
 		//@PreAuthorize("hasRole('ADMIN')") 
 		@Override
-		public ResponseEntity<?> deleteCategoryDetailsById(@PathVariable Integer id)
+		public ResponseEntity<?> deleteCategoryDetailsById(Integer id)
 		{
 			boolean deleted = categoryService.deleteCategoryDetailsById(id);
 			

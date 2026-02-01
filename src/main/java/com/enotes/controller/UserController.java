@@ -50,7 +50,7 @@ public class UserController implements UserControllerEndpoint{
 	//Change password
 	//@PostMapping("/change-password")
 	@Override
-	public ResponseEntity<?> changePassword(@RequestBody PasswordChangeRequest passwordChangeRequest)
+	public ResponseEntity<?> changePassword(PasswordChangeRequest passwordChangeRequest)
 	{
 		
 		//Call change password method

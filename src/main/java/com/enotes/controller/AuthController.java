@@ -54,7 +54,7 @@ public class AuthController implements AuthControllerEndpoint{
 	//Dynamic url 2
 	//@PostMapping("/register")
 	@Override
-	public ResponseEntity<?> registerUser(@RequestBody UserRequest userDto, HttpServletRequest request) throws Exception
+	public ResponseEntity<?> registerUser(UserRequest userDto, HttpServletRequest request) throws Exception
 	{
 		log.info("AuthController : registerUser() : Execution Start");
 		
@@ -83,7 +83,7 @@ public class AuthController implements AuthControllerEndpoint{
 	
 	//@PostMapping("/login")
 	@Override
-	public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest)
+	public ResponseEntity<?> login(LoginRequest loginRequest)
 	{
 		
 		LoginResponse loginResponse = userService.login(loginRequest);

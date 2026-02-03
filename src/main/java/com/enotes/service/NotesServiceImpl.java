@@ -29,6 +29,7 @@ import com.enotes.dto.FavouritNoteDto;
 import com.enotes.dto.NotesDto;
 import com.enotes.dto.NotesDto.CategoryDto;
 import com.enotes.dto.NotesDto.FilesDto;
+import com.enotes.dto.NotesRequest;
 import com.enotes.dto.NotesResponse;
 import com.enotes.entity.Category;
 import com.enotes.entity.FavouritNote;
@@ -110,8 +111,9 @@ public class NotesServiceImpl implements NotesService {
 
 		// json to object
 		ObjectMapper object = new ObjectMapper();
+		//NotesDto notesDto = object.readValue(notes, NotesDto.class);
 		NotesDto notesDto = object.readValue(notes, NotesDto.class);
-
+		
 		notesDto.setIsDeleted(false);
 		notesDto.setDeletedOn(null);
 

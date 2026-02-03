@@ -1,0 +1,5 @@
+2026-03-56 23:56:29.665 INFO  [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-03-56 23:56:29.667 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-03-56 23:56:29.668 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-03-56 23:56:30.092 ERROR [http-nio-8081-exec-1] c.enotes.controller.HomeController - GlobalExceptionHandler : handleBadCredentialsException() : Bad credentials
+2026-03-56 23:56:30.092 WARN  [http-nio-8081-exec-1] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.security.authentication.BadCredentialsException: Bad credentials]

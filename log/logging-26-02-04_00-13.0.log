@@ -1,0 +1,17 @@
+2026-04-13 00:13:59.244 INFO  [File Watcher] o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-04-13 00:13:59.247 INFO  [Thread-5] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-13 00:13:59.247 INFO  [tomcat-shutdown] o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8081"]
+2026-04-13 00:13:59.255 INFO  [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-04-13 00:13:59.255 INFO  [Thread-5] o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8081"]
+2026-04-13 00:13:59.260 INFO  [Thread-5] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-13 00:13:59.261 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2026-04-13 00:13:59.265 INFO  [Thread-5] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2026-04-13 00:13:59.357 INFO  [restartedMain] c.enotes.EnotesApiServiceApplication - Starting EnotesApiServiceApplication using Java 21.0.8 with PID 43160 (E:\Spring Boot\Springboot_Workspace\enotes-api-service\target\classes started by BAPURAYA MANE in E:\Spring Boot\Springboot_Workspace\enotes-api-service)
+2026-04-13 00:13:59.357 INFO  [restartedMain] c.enotes.EnotesApiServiceApplication - The following 1 profile is active: "dev"
+2026-04-13 00:13:59.677 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-13 00:13:59.712 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 33 ms. Found 7 JPA repository interfaces.
+2026-04-13 00:13:59.902 INFO  [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-04-13 00:13:59.904 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-04-13 00:13:59.904 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-13 00:13:59.905 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-04-13 00:13:59.945 INFO  [restartedMain] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 586 ms

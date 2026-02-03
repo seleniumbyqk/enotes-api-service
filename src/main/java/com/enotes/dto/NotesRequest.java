@@ -1,0 +1,52 @@
+package com.enotes.dto;
+
+public class NotesRequest {
+
+	private String title;
+	
+	private String description;
+	
+	private CategoryDto category;
+
+	public NotesRequest() {
+		super();
+	}
+
+	public NotesRequest(String title, String description, CategoryDto category) {
+		super();
+		this.title = title;
+		this.description = description;
+		this.category = category;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public CategoryDto getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryDto category) {
+		this.category = category;
+	}
+
+	@Override
+	public String toString() {
+		return "NotesRequest [title=" + title + ", description=" + description + ", category=" + category + "]";
+	}
+	
+	
+}

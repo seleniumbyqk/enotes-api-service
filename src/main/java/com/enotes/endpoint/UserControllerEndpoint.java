@@ -8,15 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.enotes.dto.PasswordChangeRequest;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@Tag(name = "User", description = "Authentication User Operation APIs")
 @RequestMapping("/api/v1/user")
 public interface UserControllerEndpoint {
 
 	//No need to mention @RequestBody, @PathVariable, @RequestParam in implementation classes
 	
+	@Operation(summary = "Get User Profile Endpoint", tags = {"User"}, description = "Get User Profile")
 	@GetMapping("/profile")
 	public ResponseEntity<?> getProfile();
 	
 	//Change password
+	@Operation(summary = "User Account Password Change Endpoint", tags = {"User"}, description = "User Account Password Change")
 	@PostMapping("/change-password")
 	public ResponseEntity<?> changePassword(@RequestBody PasswordChangeRequest passwordChangeRequest);
 		

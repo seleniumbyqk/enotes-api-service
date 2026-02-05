@@ -2,14 +2,9 @@ package com.enotes.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.enotes.dto.LoginRequest;
@@ -25,12 +20,23 @@ import jakarta.servlet.http.HttpServletRequest;
 //@RequestMapping("/api/v1/auth")
 public class AuthController implements AuthControllerEndpoint{
 
-	Logger log = LoggerFactory.getLogger(HomeController.class);
+	Logger log = LoggerFactory.getLogger(AuthController.class);
 	
 	//Auth + User Controller
 	
+	/*
+	//Filed constructor
 	@Autowired
 	private AuthService userService;
+	*/
+	
+	//Constructor injection
+	private final AuthService userService;
+	
+	public AuthController(AuthService userService)
+	{
+		this.userService = userService;
+	}
 	
 	/*
 	//Dynamic url 1
@@ -63,7 +69,7 @@ public class AuthController implements AuthControllerEndpoint{
 		
 		
 		//Call register method from User service
-		Boolean register = userService.register(userDto, url);
+		boolean register = userService.register(userDto, url);
 		
 		//Check true or false and throw error
 		if(!register)

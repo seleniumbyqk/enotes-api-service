@@ -2,9 +2,6 @@ package com.enotes.service;
 
 import java.util.UUID;
 
-import org.jspecify.annotations.Nullable;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -23,6 +20,8 @@ import jakarta.servlet.http.HttpServletRequest;
 @Service
 public class UserServiceImpl implements UserService{
 
+	/*
+	//field injection
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
@@ -31,6 +30,19 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private EmailService emailService;
+	*/
+	
+	//constructor injection
+	private PasswordEncoder passwordEncoder;
+	private UserRepository userRepository;
+	private EmailService emailService;
+	
+	public UserServiceImpl(PasswordEncoder passwordEncoder, UserRepository userRepository, EmailService emailService)
+	{
+		this.passwordEncoder = passwordEncoder;
+		this.userRepository = userRepository;
+		this.emailService = emailService;
+	}
 	
 	@Override
 	public void changePassword(PasswordChangeRequest passwordChangeRequest) {

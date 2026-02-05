@@ -1,7 +1,5 @@
 package com.enotes.dto;
 
-import tools.jackson.databind.deser.bean.BuilderBasedDeserializer;
-
 public class PasswordChangeRequest {
 
 	

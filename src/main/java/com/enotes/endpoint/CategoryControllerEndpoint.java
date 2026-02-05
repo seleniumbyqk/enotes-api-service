@@ -1,5 +1,8 @@
 package com.enotes.endpoint;
 
+import static com.enotes.util.Constants.ROLE_ADMIN;
+import static com.enotes.util.Constants.ROLE_ADMIN_USER;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -8,10 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import static com.enotes.util.Constants.*;
+
 import com.enotes.dto.CategoryDto;
 import com.enotes.exception.ResourceNotFoundException;
-import com.enotes.util.Constants;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;

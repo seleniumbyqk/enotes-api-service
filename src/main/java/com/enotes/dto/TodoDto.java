@@ -2,8 +2,6 @@ package com.enotes.dto;
 
 import java.util.Date;
 
-import com.enotes.entity.Todo.Builder;
-
 public class TodoDto {
 
     private Integer id;

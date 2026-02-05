@@ -3,7 +3,6 @@ package com.enotes.service;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -19,6 +18,8 @@ import com.enotes.util.Validation;
 @Service
 public class TodoServiceImpl implements TodoService{
 
+	/*
+	//field injection
 	@Autowired
 	private TodoRepository todoRepository;
 	
@@ -27,6 +28,20 @@ public class TodoServiceImpl implements TodoService{
 	
 	@Autowired
 	private Validation validation;
+	*/
+	
+	//constructor injection
+	private final TodoRepository todoRepository;
+	private final ModelMapper modelMapper;
+	private final Validation validation;
+	
+	public TodoServiceImpl(TodoRepository todoRepository, ModelMapper modelMapper, Validation validation)
+	{
+		this.todoRepository = todoRepository;
+		this.modelMapper = modelMapper;
+		this.validation = validation;
+	}
+	
 	
 	@Override
 	public Boolean saveTodo(TodoDto todoDto) throws Exception {

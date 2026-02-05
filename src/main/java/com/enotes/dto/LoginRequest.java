@@ -1,7 +1,5 @@
 package com.enotes.dto;
 
-import com.enotes.dto.UserRequest.Builder;
-
 public class LoginRequest {
 
 	private String email;

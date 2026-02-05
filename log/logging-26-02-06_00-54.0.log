@@ -1,0 +1,11 @@
+2026-06-54 00:54:01.649 INFO  [http-nio-8081-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-06-54 00:54:01.652 INFO  [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-06-54 00:54:01.659 INFO  [http-nio-8081-exec-2] o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-06-54 00:54:01.674 INFO  [http-nio-8081-exec-2] com.enotes.aspect.LoggingAspect - Start Calling :: AuthController :: login()
+2026-06-54 00:54:01.675 INFO  [http-nio-8081-exec-2] com.enotes.aspect.LoggingAspect - Start Calling :: AuthController :: login()
+2026-06-54 00:54:01.676 INFO  [http-nio-8081-exec-2] com.enotes.aspect.LoggingAspect - Start Calling :: AuthServiceImpl :: login()
+2026-06-54 00:54:02.081 INFO  [http-nio-8081-exec-2] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: generateToken()
+2026-06-54 00:54:02.086 INFO  [http-nio-8081-exec-2] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: generateToken() :: 4 ms
+2026-06-54 00:54:02.101 INFO  [http-nio-8081-exec-2] com.enotes.aspect.LoggingAspect - End Calling :: AuthServiceImpl :: login() :: 418 ms
+2026-06-54 00:54:02.103 INFO  [http-nio-8081-exec-2] com.enotes.aspect.LoggingAspect - End Calling :: AuthController :: login()
+2026-06-54 00:54:02.103 INFO  [http-nio-8081-exec-2] com.enotes.aspect.LoggingAspect - End Calling :: AuthController :: login() :: 428 ms

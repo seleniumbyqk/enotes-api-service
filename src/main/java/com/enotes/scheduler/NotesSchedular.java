@@ -3,7 +3,6 @@ package com.enotes.scheduler;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -13,8 +12,20 @@ import com.enotes.repository.NotesRepository;
 @Component
 public class NotesSchedular {
 
+	/*
+	//filed injection
 	@Autowired
 	private NotesRepository notesRepository;
+	*/
+	
+	//constructor injection
+	private final NotesRepository notesRepository;
+	
+	public NotesSchedular(NotesRepository notesRepository)
+	{
+		this.notesRepository = notesRepository;
+	}
+	
 	//int i=0;
 	
 	//@Scheduled(fixedRate = 1000)

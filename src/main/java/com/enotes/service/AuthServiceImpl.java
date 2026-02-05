@@ -3,11 +3,9 @@ package com.enotes.service;
 import java.util.List;
 import java.util.UUID;
 
-import org.jspecify.annotations.Nullable;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -35,6 +33,8 @@ public class AuthServiceImpl implements AuthService{
 	//Logger implementation manually
 	Logger log = LoggerFactory.getLogger(HomeController.class);
 	
+	/*
+	//filed injection
 	@Autowired
 	private UserRepository userRepository;
 	
@@ -58,6 +58,33 @@ public class AuthServiceImpl implements AuthService{
 	
 	@Autowired
 	private JwtService jwtService;
+	*/
+	
+	//constructor injection
+	private final UserRepository userRepository;
+	private final  RoleRepository roleRepository;
+	private final Validation validation;
+	private final ModelMapper modelMapper;
+	private final EmailService emailService;
+	private final AuthenticationManager authenticationManager;
+	private final BCryptPasswordEncoder passwordEncoder;
+	private final JwtService jwtService;
+	
+	public AuthServiceImpl(UserRepository userRepository, RoleRepository roleRepository, 
+			Validation validation, ModelMapper modelMapper, EmailService emailService,
+			AuthenticationManager authenticationManager, BCryptPasswordEncoder passwordEncoder,
+			JwtService jwtService)
+	{
+		this.userRepository = userRepository;
+		this.roleRepository = roleRepository;
+		this.validation = validation;
+		this.modelMapper = modelMapper;
+		this.emailService = emailService;
+		this.authenticationManager = authenticationManager;
+		this.passwordEncoder = passwordEncoder;
+		this.jwtService = jwtService;
+	}
+	
 	
 	@Override
 	public Boolean register(UserRequest userDto, String url) throws Exception {

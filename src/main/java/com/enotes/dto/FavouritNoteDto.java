@@ -1,9 +1,5 @@
 package com.enotes.dto;
 
-import com.enotes.dto.NotesResponse.Builder;
-
-
-
 public class FavouritNoteDto {
 
 	private Integer id;

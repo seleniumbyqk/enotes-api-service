@@ -2,7 +2,6 @@ package com.enotes.config.security;
 
 import java.io.IOException;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,18 +18,29 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import tools.jackson.core.JacksonException;
 import tools.jackson.databind.ObjectMapper;
 
 @Component
 public class JwtFilter extends OncePerRequestFilter{
 
+	/*
+	//field injection
 	@Autowired
 	private JwtService jwtService;
 	
 	@Autowired
 	private UserDetailsService userDetailsService;
+	*/
 	
+	//Constructor injection
+	 private final JwtService jwtService;
+	 private final UserDetailsService userDetailsService;
+	 
+	 public JwtFilter(JwtService jwtService, UserDetailsService userDetailsService) {
+	        this.jwtService = jwtService;
+	        this.userDetailsService = userDetailsService;
+	    }
+	    
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
@@ -95,7 +105,7 @@ public class JwtFilter extends OncePerRequestFilter{
 			{
 				UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 				
-				Boolean validateToken = jwtService.validateToken(token, userDetails);
+				boolean validateToken = jwtService.validateToken(token, userDetails);
 				
 				if(validateToken)
 				{

@@ -3,10 +3,8 @@ package com.enotes.service;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -21,6 +19,8 @@ import com.enotes.util.Validation;
 @Service
 public class CategoryServiceImpl implements CategoryService{
 
+	/*
+	//field injection
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
@@ -29,6 +29,21 @@ public class CategoryServiceImpl implements CategoryService{
 	
 	@Autowired
 	private Validation validation;
+	*/
+	
+	//constructor injection
+	private final CategoryRepository categoryRepository;
+	private final ModelMapper modelMapper;
+	private final Validation validation;
+	
+	public CategoryServiceImpl(CategoryRepository categoryRepository, ModelMapper modelMapper,
+			Validation validation)
+	{
+		this.categoryRepository = categoryRepository;
+		this.modelMapper = modelMapper;
+		this.validation = validation;
+	}
+	
 	
 	/*
 	//Without DTO
@@ -225,9 +240,18 @@ public class CategoryServiceImpl implements CategoryService{
 			}
 			*/
 			
-			category.getName().toUpperCase();
+			//category.getName().toUpperCase();
+			//category.setName(category.getName().toUpperCase());
 			
-			return modelMapper.map(category, CategoryDto.class);
+			//return modelMapper.map(category, CategoryDto.class);
+			
+			CategoryDto dto = modelMapper.map(category, CategoryDto.class);
+
+			if (dto.getName() != null) {
+		        dto.setName(dto.getName().toUpperCase());
+		    }
+			
+			return dto;
 		}
 		
 		

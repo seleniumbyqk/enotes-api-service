@@ -5,16 +5,13 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 import org.apache.commons.io.FilenameUtils;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -29,7 +26,6 @@ import com.enotes.dto.FavouritNoteDto;
 import com.enotes.dto.NotesDto;
 import com.enotes.dto.NotesDto.CategoryDto;
 import com.enotes.dto.NotesDto.FilesDto;
-import com.enotes.dto.NotesRequest;
 import com.enotes.dto.NotesResponse;
 import com.enotes.entity.Category;
 import com.enotes.entity.FavouritNote;
@@ -47,6 +43,8 @@ import tools.jackson.databind.ObjectMapper;
 @Service
 public class NotesServiceImpl implements NotesService {
 
+	/*
+	//filed injection
 	@Autowired
 	private NotesRepository notesRepository;
 
@@ -61,7 +59,26 @@ public class NotesServiceImpl implements NotesService {
 
 	@Autowired
 	private FavouriteNoteRepository favouriteNoteRepository;
+	*/
 
+	//constructor injection
+	private final NotesRepository notesRepository;
+	private final ModelMapper modelMapper;
+	private final CategoryRepository categoryRepository;
+	private final FileRepository fileRepository;
+	private final FavouriteNoteRepository favouriteNoteRepository;
+	
+	public NotesServiceImpl(NotesRepository notesRepository, ModelMapper modelMapper,
+			CategoryRepository categoryRepository, FileRepository fileRepository,
+			FavouriteNoteRepository favouriteNoteRepository)
+	{
+		this.notesRepository = notesRepository;
+		this.modelMapper = modelMapper;
+		this.categoryRepository = categoryRepository;
+		this.fileRepository = fileRepository;
+		this.favouriteNoteRepository = favouriteNoteRepository;
+	}
+	
 	@Value("${file.upload.path}")
 	private String uploadPath;
 

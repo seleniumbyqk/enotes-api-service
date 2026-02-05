@@ -2,9 +2,6 @@ package com.enotes.dto;
 
 import java.util.List;
 
-import com.enotes.entity.Role;
-import com.enotes.entity.User.Builder;
-
 
 
 public class UserRequest {

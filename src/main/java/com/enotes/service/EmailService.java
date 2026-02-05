@@ -1,6 +1,5 @@
 package com.enotes.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -8,15 +7,24 @@ import org.springframework.stereotype.Component;
 
 import com.enotes.dto.EmailRequest;
 
-import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
 
 @Component
 public class EmailService {
 
-	
+	/*
+	//field injection
 	@Autowired
 	private JavaMailSender mailSender;
+	*/
+	
+	//constructor injection
+	private final JavaMailSender mailSender;
+	
+	public EmailService(JavaMailSender mailSender)
+	{
+		this.mailSender = mailSender;
+	}
 	
 	@Value("${spring.mail.username}")
 	private String mailFrom;

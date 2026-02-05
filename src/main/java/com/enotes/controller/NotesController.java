@@ -2,19 +2,11 @@ package com.enotes.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -30,9 +22,20 @@ import com.enotes.util.CommonUtil;
 //@RequestMapping("/api/v1/notes")
 public class NotesController implements NotesControllerEndpoint{
 
+	/*
+	//field injection
 	@Autowired
 	private NotesService notesService;
-
+    */
+	
+	//constructor injection
+	private final NotesService notesService;
+	
+	public NotesController(NotesService notesService)
+	{
+		this.notesService = notesService;
+	}
+	
 	/*
 	 * //To convert json to object class - @RequestBody NotesDto notesDto
 	 * 
@@ -56,7 +59,7 @@ public class NotesController implements NotesControllerEndpoint{
 	@Override
 	public ResponseEntity<?> saveNotes(String notes,  MultipartFile file)
 			throws Exception {
-		Boolean saveNotes = notesService.saveNotes(notes, file);
+		boolean saveNotes = notesService.saveNotes(notes, file);
 
 		// If true
 		if (saveNotes) {
@@ -114,7 +117,7 @@ public class NotesController implements NotesControllerEndpoint{
 		//Integer userId = 2;
 		
 		//logged in user id
-		Integer userId = CommonUtil.getLoggedInUser().getId();
+		//Integer userId = CommonUtil.getLoggedInUser().getId();
 
 		NotesResponse notes = notesService.getAllNotesByUser(pageNo, pageSize);   //userId - when no logged in user
 
@@ -140,7 +143,7 @@ public class NotesController implements NotesControllerEndpoint{
 		//Integer userId = 2;
 		
 		//logged in user id
-		Integer userId = CommonUtil.getLoggedInUser().getId();
+		//Integer userId = CommonUtil.getLoggedInUser().getId();
 
 		NotesResponse notes = notesService.getAllNotesByUserSearch(pageNo, pageSize, key);   //userId - when no logged in user
 
@@ -160,7 +163,7 @@ public class NotesController implements NotesControllerEndpoint{
 	public ResponseEntity<?> deleteNotes(Integer id) throws Exception {
 		notesService.softDeleteNotes(id);
 
-		return CommonUtil.createBuildResponseMessage("Delete success", HttpStatus.OK);
+		return CommonUtil.createBuildResponseMessage("Delete Notes success", HttpStatus.OK);
 	}
 
 	// Restore data in database
@@ -183,7 +186,7 @@ public class NotesController implements NotesControllerEndpoint{
 		//Integer userId = 2;
 		
 		//logged in user id
-		Integer userId = CommonUtil.getLoggedInUser().getId();
+		//Integer userId = CommonUtil.getLoggedInUser().getId();
 
 		List<NotesDto> notes = notesService.getUserRecycleBinNotes();  // userId - use when no logged in user
 
@@ -201,7 +204,7 @@ public class NotesController implements NotesControllerEndpoint{
 	public ResponseEntity<?> hardDeleteNotes(Integer id) throws Exception {
 		notesService.hardDeleteNotes(id);
 
-		return CommonUtil.createBuildResponseMessage("Delete success", HttpStatus.OK);
+		return CommonUtil.createBuildResponseMessage("Delete hard notes success", HttpStatus.OK);
 	}
 
 	// Delete all data
@@ -214,7 +217,7 @@ public class NotesController implements NotesControllerEndpoint{
 		//Integer userId = 2;
 		
 		//logged in user id
-		Integer userId = CommonUtil.getLoggedInUser().getId();
+		//Integer userId = CommonUtil.getLoggedInUser().getId();
 		
 		//For static user id
 		//notesService.emptyRecycleBin(userId);
@@ -222,7 +225,7 @@ public class NotesController implements NotesControllerEndpoint{
 		//For logged in user
 		notesService.emptyRecycleBin();
 
-		return CommonUtil.createBuildResponseMessage("Delete success", HttpStatus.OK);
+		return CommonUtil.createBuildResponseMessage("Delete recycle bin success", HttpStatus.OK);
 	}
 
 	// Favorite notes
@@ -262,7 +265,7 @@ public class NotesController implements NotesControllerEndpoint{
 			//Integer userId = 2;
 			
 			//logged in user id
-			Integer userId = CommonUtil.getLoggedInUser().getId();
+			//Integer userId = CommonUtil.getLoggedInUser().getId();
 			
 			List<FavouritNoteDto> userFaouriteNotes = notesService.getUserFaouriteNotes();
 			

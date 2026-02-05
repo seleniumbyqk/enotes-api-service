@@ -4,7 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.ObjectUtils;
@@ -28,11 +27,24 @@ public class Validation {
 
 	//private static final String EMAIL_REGEX = "^[a-zA-z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
 	
+	/*
+	//field injection
 	@Autowired
 	private RoleRepository roleRepository;
 	
 	@Autowired
 	private UserRepository userRepository;
+	*/
+	
+	//constructor injection
+	private final RoleRepository roleRepository;
+	private final UserRepository userRepository;
+	
+	public Validation(RoleRepository roleRepository, UserRepository userRepository)
+	{
+		this.roleRepository = roleRepository;
+		this.userRepository = userRepository;
+	}
 	
 	public void categoryValidation(CategoryDto categoryDto)
 	{
@@ -165,7 +177,7 @@ public class Validation {
 		}
 		
 		if (!StringUtils.hasText(userDto.getPassword()) ||
-			    !userDto.getPassword().matches(Constants.PASSWORD_REGEX)) {
+			    !userDto.getPassword().matches(Constants.PASSWORD_VALIDATION_REGEX)) {
 
 			    throw new IllegalArgumentException(
 			        "Password must contain at least 8 characters, including uppercase, lowercase, number and special character"

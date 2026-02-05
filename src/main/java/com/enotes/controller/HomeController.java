@@ -2,14 +2,8 @@ package com.enotes.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.enotes.dto.PasswordResetRequest;
@@ -27,12 +21,24 @@ public class HomeController implements HomeControllerEndpoint{
 	//Logger implementation manually
 	Logger log = LoggerFactory.getLogger(HomeController.class);
 	
-	
+	/*
+	//field injection
 	@Autowired
 	private HomeService homeService;
 	
 	@Autowired
 	private UserService userService;
+	*/
+	
+	//constructor injection
+	private final HomeService homeService;
+	private final UserService userService;
+	
+	public HomeController(HomeService homeService, UserService userService)
+	{
+		this.homeService = homeService;
+		this.userService = userService;
+	}
 	
 	//@GetMapping("/verify")
 	@Override
@@ -40,7 +46,7 @@ public class HomeController implements HomeControllerEndpoint{
 	{
 		log.info("HomeController : verifyUserAccount() :Execution start");
 		
-		Boolean verifyAccount = homeService.verifyAccount(uid, code);
+		boolean verifyAccount = homeService.verifyAccount(uid, code);
 		
 		//If true
 		if(verifyAccount)

@@ -2,14 +2,9 @@ package com.enotes.config;
 
 
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeMap;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
-
-import com.enotes.dto.NotesDto;
-import com.enotes.entity.Category;
-import com.enotes.entity.Notes;
 
 @Configuration
 public class ProjectConfig {

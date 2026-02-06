@@ -1,0 +1,8 @@
+2026-06-18 18:18:41.461 INFO  [http-nio-8081-exec-6] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: extractUsername()
+2026-06-18 18:18:41.463 INFO  [http-nio-8081-exec-6] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: extractUsername() :: 1 ms
+2026-06-18 18:18:41.468 INFO  [http-nio-8081-exec-6] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: validateToken()
+2026-06-18 18:18:41.471 INFO  [http-nio-8081-exec-6] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: validateToken() :: 2 ms
+2026-06-18 18:18:41.473 INFO  [http-nio-8081-exec-6] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryController :: getCategoryDetailsById()
+2026-06-18 18:18:41.477 INFO  [http-nio-8081-exec-6] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: getCategoryById()
+2026-06-18 18:18:41.497 ERROR [http-nio-8081-exec-6] c.enotes.controller.HomeController - GlobalExceptionHandler : handleResourceNotFoundException() : Category not found with id 3
+2026-06-18 18:18:41.498 WARN  [http-nio-8081-exec-6] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.enotes.exception.ResourceNotFoundException: Category not found with id 3]

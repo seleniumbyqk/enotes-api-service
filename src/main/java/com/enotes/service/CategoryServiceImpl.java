@@ -1,10 +1,13 @@
 package com.enotes.service;
 
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.modelmapper.ModelMapper;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
@@ -15,6 +18,8 @@ import com.enotes.exception.ExistDataException;
 import com.enotes.exception.ResourceNotFoundException;
 import com.enotes.repository.CategoryRepository;
 import com.enotes.util.Validation;
+
+
 
 @Service
 public class CategoryServiceImpl implements CategoryService{
@@ -35,13 +40,15 @@ public class CategoryServiceImpl implements CategoryService{
 	private final CategoryRepository categoryRepository;
 	private final ModelMapper modelMapper;
 	private final Validation validation;
+	private final CacheManagerService cacheManagerService;
 	
 	public CategoryServiceImpl(CategoryRepository categoryRepository, ModelMapper modelMapper,
-			Validation validation)
+			Validation validation, CacheManagerService cacheManagerService)
 	{
 		this.categoryRepository = categoryRepository;
 		this.modelMapper = modelMapper;
 		this.validation = validation;
+		this.cacheManagerService = cacheManagerService;
 	}
 	
 	
@@ -167,6 +174,7 @@ public class CategoryServiceImpl implements CategoryService{
 	
 	//With DTO
 	@Override
+	@Cacheable("allCategory")              //use cache
 	public List<CategoryDto> getAllCategory() {
 		// TODO Auto-generated method stub
 		
@@ -184,6 +192,7 @@ public class CategoryServiceImpl implements CategoryService{
 
 
 	@Override
+	@Cacheable("activeCategory") 
 	public List<CategoryResponse> getActiveCategory() {
 		// TODO Auto-generated method stub
 		
@@ -200,6 +209,7 @@ public class CategoryServiceImpl implements CategoryService{
 
 
 	@Override
+	@Cacheable(value = "getCategoryById", key = "#id")
 	public CategoryDto getCategoryById(Integer id) throws ResourceNotFoundException {
 		// TODO Auto-generated method stub
 		
@@ -265,6 +275,7 @@ public class CategoryServiceImpl implements CategoryService{
 
 
 	@Override
+	@CacheEvict(value = "getCategoryById", key = "#id")                     //when we will delete from db then it should not show in cache
 	public boolean deleteCategoryDetailsById(Integer id) {
 		// TODO Auto-generated method stub
 		
@@ -277,6 +288,9 @@ Optional<Category> findByCategory = categoryRepository.findById(id);
 			category.setIsDeleted(true);
 			
 			categoryRepository.save(category);
+			
+			//Remove from cache
+			cacheManagerService.removeCacheByName(Arrays.asList("allCategory", "activeCategory"));
 			
 			return true;
 		}

@@ -1,0 +1,12 @@
+2026-06-08 17:08:22.599 INFO  [http-nio-8081-exec-4] com.enotes.aspect.LoggingAspect - Start Calling :: CacheController :: getAllCache()
+2026-06-08 17:08:22.601 INFO  [http-nio-8081-exec-4] com.enotes.aspect.LoggingAspect - Start Calling :: CacheManagerServiceImpl :: getCache()
+2026-06-08 17:08:22.601 INFO  [http-nio-8081-exec-4] c.enotes.controller.HomeController - Cache Name: org.springframework.cache.concurrent.ConcurrentMapCache@10fca679
+2026-06-08 17:08:22.602 INFO  [http-nio-8081-exec-4] c.enotes.controller.HomeController - Cache Name: org.springframework.cache.concurrent.ConcurrentMapCache@7d8fc438
+2026-06-08 17:08:22.602 INFO  [http-nio-8081-exec-4] com.enotes.aspect.LoggingAspect - End Calling :: CacheManagerServiceImpl :: getCache() :: 1 ms
+2026-06-08 17:08:22.602 INFO  [http-nio-8081-exec-4] com.enotes.aspect.LoggingAspect - End Calling :: CacheController :: getAllCache() :: 1 ms
+2026-06-08 17:08:31.375 INFO  [http-nio-8081-exec-5] com.enotes.aspect.LoggingAspect - Start Calling :: CacheController :: removeAllCache()
+2026-06-08 17:08:31.375 INFO  [http-nio-8081-exec-5] com.enotes.aspect.LoggingAspect - Start Calling :: CacheManagerServiceImpl :: reoveAllCache()
+2026-06-08 17:08:31.375 INFO  [http-nio-8081-exec-5] c.enotes.controller.HomeController - Cache Name: allCategory
+2026-06-08 17:08:31.375 INFO  [http-nio-8081-exec-5] c.enotes.controller.HomeController - Cache Name: allCategoey
+2026-06-08 17:08:31.376 INFO  [http-nio-8081-exec-5] com.enotes.aspect.LoggingAspect - End Calling :: CacheManagerServiceImpl :: reoveAllCache() :: 1 ms
+2026-06-08 17:08:31.376 INFO  [http-nio-8081-exec-5] com.enotes.aspect.LoggingAspect - End Calling :: CacheController :: removeAllCache() :: 1 ms

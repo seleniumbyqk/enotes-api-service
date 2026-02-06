@@ -1,0 +1,20 @@
+2026-06-02 17:02:29.923 INFO  [http-nio-8081-exec-7] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: extractUsername()
+2026-06-02 17:02:29.926 INFO  [http-nio-8081-exec-7] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: extractUsername() :: 1 ms
+2026-06-02 17:02:29.933 INFO  [http-nio-8081-exec-7] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: validateToken()
+2026-06-02 17:02:29.935 INFO  [http-nio-8081-exec-7] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: validateToken() :: 1 ms
+2026-06-02 17:02:29.936 INFO  [http-nio-8081-exec-7] com.enotes.aspect.LoggingAspect - Start Calling :: CacheController :: getAllCache()
+2026-06-02 17:02:29.937 INFO  [http-nio-8081-exec-7] com.enotes.aspect.LoggingAspect - Start Calling :: CacheManagerServiceImpl :: getCache()
+2026-06-02 17:02:29.943 INFO  [http-nio-8081-exec-7] c.enotes.controller.HomeController - Cache Name: org.springframework.cache.concurrent.ConcurrentMapCache@10fca679
+2026-06-02 17:02:29.943 INFO  [http-nio-8081-exec-7] c.enotes.controller.HomeController - Cache Name: org.springframework.cache.concurrent.ConcurrentMapCache@7d8fc438
+2026-06-02 17:02:29.943 INFO  [http-nio-8081-exec-7] com.enotes.aspect.LoggingAspect - End Calling :: CacheManagerServiceImpl :: getCache() :: 0 ms
+2026-06-02 17:02:29.943 INFO  [http-nio-8081-exec-7] com.enotes.aspect.LoggingAspect - End Calling :: CacheController :: getAllCache() :: 7 ms
+2026-06-02 17:02:36.558 INFO  [http-nio-8081-exec-8] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: extractUsername()
+2026-06-02 17:02:36.559 INFO  [http-nio-8081-exec-8] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: extractUsername() :: 0 ms
+2026-06-02 17:02:36.566 INFO  [http-nio-8081-exec-8] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: validateToken()
+2026-06-02 17:02:36.568 INFO  [http-nio-8081-exec-8] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: validateToken() :: 1 ms
+2026-06-02 17:02:36.570 INFO  [http-nio-8081-exec-8] com.enotes.aspect.LoggingAspect - Start Calling :: CacheController :: getAllCache()
+2026-06-02 17:02:36.570 INFO  [http-nio-8081-exec-8] com.enotes.aspect.LoggingAspect - Start Calling :: CacheManagerServiceImpl :: getCache()
+2026-06-02 17:02:36.570 INFO  [http-nio-8081-exec-8] c.enotes.controller.HomeController - Cache Name: org.springframework.cache.concurrent.ConcurrentMapCache@10fca679
+2026-06-02 17:02:36.570 INFO  [http-nio-8081-exec-8] c.enotes.controller.HomeController - Cache Name: org.springframework.cache.concurrent.ConcurrentMapCache@7d8fc438
+2026-06-02 17:02:36.571 INFO  [http-nio-8081-exec-8] com.enotes.aspect.LoggingAspect - End Calling :: CacheManagerServiceImpl :: getCache() :: 1 ms
+2026-06-02 17:02:36.571 INFO  [http-nio-8081-exec-8] com.enotes.aspect.LoggingAspect - End Calling :: CacheController :: getAllCache() :: 1 ms

@@ -1,2 +1,0 @@
-2026-06-17 18:17:35.998 ERROR [http-nio-8081-exec-1] c.enotes.controller.HomeController - GlobalExceptionHandler : handleException() : Request method 'DELETE' is not supported
-2026-06-17 18:17:36.003 WARN  [http-nio-8081-exec-1] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' is not supported]

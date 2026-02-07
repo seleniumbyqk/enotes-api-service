@@ -1,5 +1,0 @@
-2026-06-52 16:52:05.568 INFO  [http-nio-8081-exec-3] com.enotes.aspect.LoggingAspect - Start Calling :: CacheController :: getAllCache()
-2026-06-52 16:52:05.571 INFO  [http-nio-8081-exec-3] com.enotes.aspect.LoggingAspect - Start Calling :: CacheManagerServiceImpl :: getCache()
-2026-06-52 16:52:05.571 INFO  [http-nio-8081-exec-3] c.enotes.controller.HomeController - Cache Name: org.springframework.cache.concurrent.ConcurrentMapCache@5698d1f8
-2026-06-52 16:52:05.571 INFO  [http-nio-8081-exec-3] com.enotes.aspect.LoggingAspect - End Calling :: CacheManagerServiceImpl :: getCache() :: 0 ms
-2026-06-52 16:52:05.571 INFO  [http-nio-8081-exec-3] com.enotes.aspect.LoggingAspect - End Calling :: CacheController :: getAllCache() :: 0 ms

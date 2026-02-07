@@ -1,5 +1,0 @@
-2026-05-56 22:56:05.972 INFO  [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-05-56 22:56:05.976 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-05-56 22:56:05.983 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 7 ms
-2026-05-56 22:56:25.277 ERROR [http-nio-8081-exec-3] c.enotes.controller.HomeController - GlobalExceptionHandler : handleException() : Request method 'GET' is not supported
-2026-05-56 22:56:25.309 WARN  [http-nio-8081-exec-3] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]

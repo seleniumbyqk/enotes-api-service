@@ -17,7 +17,7 @@ public interface CategoryService {
 	//public List<Category> getAllCategory();
 	
 	//WithDTO
-	public boolean saveCategory(CategoryDto categoryDto);
+	public Boolean saveCategory(CategoryDto categoryDto);
 	
 	public List<CategoryDto> getAllCategory();
 

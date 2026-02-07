@@ -1,0 +1,47 @@
+2026-07-24 14:24:00.327 INFO  [main] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-24 14:24:00.396 INFO  [main] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.0.Final
+2026-07-24 14:24:01.013 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-24 14:24:01.053 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-24 14:24:01.565 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2b69ff13
+2026-07-24 14:24:01.568 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-24 14:24:01.656 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-24 14:24:01.691 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/enotes_db_dev]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.42
+	Default catalog/schema: enotes_db_dev/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-24 14:24:03.136 INFO  [main] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-24 14:24:03.145 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-24 14:24:03.487 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-24 14:24:04.097 INFO  [main] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
+2026-07-24 14:24:04.098 WARN  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-24 14:24:06.483 WARN  [main] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-24 14:24:08.300 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-07-24 14:24:08.301 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-07-24 14:24:08.316 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-07-24 14:24:08.346 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 45 ms
+2026-07-24 14:24:08.477 INFO  [main] c.e.i.CategoryIntegrationTest - Started CategoryIntegrationTest in 11.512 seconds (process running for 13.176)
+2026-07-24 14:24:09.326 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthController :: login()
+2026-07-24 14:24:09.326 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthServiceImpl :: login()
+2026-07-24 14:24:09.654 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: generateToken()
+2026-07-24 14:24:09.776 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: generateToken() :: 121 ms
+2026-07-24 14:24:09.808 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthServiceImpl :: login() :: 482 ms
+2026-07-24 14:24:09.810 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthController :: login() :: 484 ms
+2026-07-24 14:24:09.867 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: extractUsername()
+2026-07-24 14:24:09.910 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: extractUsername() :: 43 ms
+2026-07-24 14:24:09.945 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: validateToken()
+2026-07-24 14:24:09.947 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: validateToken() :: 1 ms
+2026-07-24 14:24:09.973 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryController :: saveCategory()
+2026-07-24 14:24:09.973 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
+2026-07-24 14:24:10.087 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: saveCategory() :: 114 ms
+2026-07-24 14:24:10.087 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryController :: saveCategory() :: 114 ms
+2026-07-24 14:24:10.173 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-24 14:24:10.176 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-24 14:24:10.187 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

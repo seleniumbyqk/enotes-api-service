@@ -1,0 +1,2 @@
+2026-07-31 13:31:43.267 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.enotes.integration.CategoryIntegrationTest]: CategoryIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-07-31 13:31:43.494 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.enotes.EnotesApiServiceApplication for test class com.enotes.integration.CategoryIntegrationTest

@@ -78,7 +78,7 @@ public class CategoryServiceImpl implements CategoryService{
 	
 	//WIth DTO
 	@Override
-	public boolean saveCategory(CategoryDto categoryDto) {
+	public Boolean saveCategory(CategoryDto categoryDto) {
 		// TODO Auto-generated method stub
 		
 		

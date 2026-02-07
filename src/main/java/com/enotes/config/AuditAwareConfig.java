@@ -19,6 +19,8 @@ public class AuditAwareConfig implements AuditorAware<Integer>{
 		
 		//Give logged in users id
 		
+		try
+		{
 		User loggedInUser = CommonUtil.getLoggedInUser();
 		//return Optional.empty();
 		
@@ -27,6 +29,10 @@ public class AuditAwareConfig implements AuditorAware<Integer>{
 		//return Optional.of(2);
 		
 		return Optional.of(loggedInUser.getId());
+		}
+	  catch (Exception e) {
+	        return Optional.of(1); // default system user
+	    }
 	}
 
 }

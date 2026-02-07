@@ -1,6 +1,0 @@
-2026-03-46 23:46:39.102 INFO  [RMI TCP Connection(288)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
-2026-03-46 23:46:39.104 INFO  [RMI TCP Connection(288)-127.0.0.1] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
-2026-03-46 23:46:39.109 INFO  [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
-2026-03-46 23:46:39.112 INFO  [RMI TCP Connection(288)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-03-46 23:46:39.113 INFO  [RMI TCP Connection(288)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-36 - Shutdown initiated...
-2026-03-46 23:46:39.116 INFO  [RMI TCP Connection(288)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-36 - Shutdown completed.

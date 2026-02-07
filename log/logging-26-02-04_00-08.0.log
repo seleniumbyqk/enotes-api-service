@@ -1,2 +1,0 @@
-2026-04-08 00:08:02.858 ERROR [http-nio-8081-exec-4] c.enotes.controller.HomeController - GlobalExceptionHandler : handleResourceNotFoundException() : File not available
-2026-04-08 00:08:02.860 WARN  [http-nio-8081-exec-4] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.enotes.exception.ResourceNotFoundException: File not available]

@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.AuditorAware;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 @Configuration
 public class ProjectConfig {
 
@@ -17,6 +19,10 @@ public class ProjectConfig {
 		return new ModelMapper();
 	}
 	
+	@Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper();
+    }
 	
 	//To implement the audit aware config class
 	@Bean

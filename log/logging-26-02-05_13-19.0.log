@@ -1,5 +1,0 @@
-2026-05-19 13:19:00.794 WARN  [main] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-05-19 13:19:02.956 INFO  [main] c.e.EnotesApiServiceApplicationTests - Started EnotesApiServiceApplicationTests in 18.114 seconds (process running for 21.314)
-2026-05-19 13:19:03.964 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-05-19 13:19:03.967 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-05-19 13:19:03.994 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

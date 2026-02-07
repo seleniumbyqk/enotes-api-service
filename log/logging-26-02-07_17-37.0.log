@@ -1,0 +1,24 @@
+2026-07-37 17:37:00.162 INFO  [main] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
+2026-07-37 17:37:00.164 WARN  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-37 17:37:02.083 WARN  [main] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-37 17:37:03.857 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-07-37 17:37:03.858 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-07-37 17:37:03.870 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-07-37 17:37:03.903 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 44 ms
+2026-07-37 17:37:04.016 INFO  [main] c.e.i.CategoryServiceIntegrationTest - Started CategoryServiceIntegrationTest in 10.038 seconds (process running for 11.66)
+2026-07-37 17:37:04.586 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: getActiveCategory()
+2026-07-37 17:37:04.795 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: getActiveCategory() :: 209 ms
+2026-07-37 17:37:04.818 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: getCategoryById()
+2026-07-37 17:37:04.845 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: getAllCategory()
+2026-07-37 17:37:04.859 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: getAllCategory() :: 13 ms
+2026-07-37 17:37:04.865 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
+2026-07-37 17:37:04.927 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
+2026-07-37 17:37:04.943 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
+2026-07-37 17:37:04.955 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
+2026-07-37 17:37:04.968 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: deleteCategoryDetailsById()
+2026-07-37 17:37:04.987 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: deleteCategoryDetailsById() :: 18 ms
+2026-07-37 17:37:04.994 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
+2026-07-37 17:37:05.007 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
+2026-07-37 17:37:05.036 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-37 17:37:05.040 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-37 17:37:05.049 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

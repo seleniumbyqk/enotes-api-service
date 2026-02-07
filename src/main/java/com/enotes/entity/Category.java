@@ -105,4 +105,66 @@ public class Category extends BaseModel{
 	}
 	
 	
+	
+	// Private constructor used by Builder
+    private Category(Builder builder) {
+        this.id = builder.id;
+        this.name = builder.name;
+        this.description = builder.description;
+        this.isActive = builder.isActive;
+        this.isDeleted =builder.isDeleted;
+    }
+    
+    // ✅ STATIC BUILDER METHOD (THIS WAS MISSING)
+    public static Builder builder() {
+        return new Builder();
+    }
+    
+    
+    // ---------------- BUILDER ----------------
+    public static class Builder {
+    
+    	private Integer id;
+    	
+    	private String name;
+    	
+    	private String description;
+    	
+
+        private Boolean isActive;
+    	
+    	private Boolean isDeleted;
+    		
+    		public Builder id(Integer id) {
+                this.id = id;
+                return this;
+            }
+    		
+    		public Builder name(String name) {
+                this.name = name;
+                return this;
+            }
+    		
+    		public Builder description(String description) {
+                this.description = description;
+                return this;
+            }
+    		
+    		public Builder isActive(Boolean isActive) {
+                this.isActive = isActive;
+                return this;
+            }
+    		
+    		public Builder isDeleted(Boolean isDeleted) {
+                this.isDeleted = isDeleted;
+                return this;
+            }
+    		
+    		
+    		
+    		public Category build() {
+                return new Category(this);
+            }
+    }
+    
 }

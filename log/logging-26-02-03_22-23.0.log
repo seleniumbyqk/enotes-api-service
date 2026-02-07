@@ -1,8 +1,0 @@
-2026-03-23 22:23:00.978 INFO  [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-23 22:23:00.981 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-03-23 22:23:00.983 INFO  [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2026-03-23 22:23:00.993 ERROR [http-nio-8081-exec-1] c.enotes.controller.HomeController - GlobalExceptionHandler : handleException() : No static resource v3/api-docs for request '/v3/api-docs'.
-2026-03-23 22:23:01.001 WARN  [http-nio-8081-exec-1] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource v3/api-docs for request '/v3/api-docs'.]
-2026-03-23 22:23:03.587 ERROR [http-nio-8081-exec-3] c.enotes.controller.HomeController - GlobalExceptionHandler : handleException() : No static resource v3/api-docs for request '/v3/api-docs'.
-2026-03-23 22:23:03.589 WARN  [http-nio-8081-exec-3] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource v3/api-docs for request '/v3/api-docs'.]
-2026-03-23 22:23:10.510 INFO  [http-nio-8081-exec-3] o.s.api.AbstractOpenApiResource - Init duration for springdoc-openapi is: 190 ms

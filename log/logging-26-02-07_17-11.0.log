@@ -1,0 +1,154 @@
+2026-07-11 17:11:30.391 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.enotes.integration.CategoryControllerIntegrationTest]: CategoryControllerIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-07-11 17:11:30.542 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.enotes.EnotesApiServiceApplication for test class com.enotes.integration.CategoryControllerIntegrationTest
+2026-07-11 17:11:30.713 INFO  [main] o.s.b.d.r.RestartApplicationListener - Restart disabled due to context in which it is running
+2026-07-11 17:11:31.126 INFO  [main] c.e.i.CategoryControllerIntegrationTest - Starting CategoryControllerIntegrationTest using Java 21.0.8 with PID 51100 (started by BAPURAYA MANE in E:\Spring Boot\Springboot_Workspace\enotes-api-service)
+2026-07-11 17:11:31.134 INFO  [main] c.e.i.CategoryControllerIntegrationTest - The following 1 profile is active: "dev"
+2026-07-11 17:11:31.683 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-07-11 17:11:32.631 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-11 17:11:32.730 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 87 ms. Found 7 JPA repository interfaces.
+2026-07-11 17:11:33.842 INFO  [main] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-11 17:11:33.915 INFO  [main] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.0.Final
+2026-07-11 17:11:34.476 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-11 17:11:34.514 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-11 17:11:34.959 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@46ae897c
+2026-07-11 17:11:34.962 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-11 17:11:35.036 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-11 17:11:35.072 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/enotes_db_dev]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.42
+	Default catalog/schema: enotes_db_dev/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-11 17:11:36.271 INFO  [main] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-11 17:11:36.279 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-11 17:11:36.567 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-11 17:11:37.071 INFO  [main] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
+2026-07-11 17:11:37.071 WARN  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-11 17:11:39.084 WARN  [main] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-11 17:11:40.886 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-07-11 17:11:40.886 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-07-11 17:11:40.897 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-07-11 17:11:40.923 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 37 ms
+2026-07-11 17:11:41.037 INFO  [main] c.e.i.CategoryControllerIntegrationTest - Started CategoryControllerIntegrationTest in 10.339 seconds (process running for 11.996)
+2026-07-11 17:11:41.763 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthController :: login()
+2026-07-11 17:11:41.764 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthServiceImpl :: login()
+2026-07-11 17:11:42.069 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: generateToken()
+2026-07-11 17:11:42.152 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: generateToken() :: 83 ms
+2026-07-11 17:11:42.184 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthServiceImpl :: login() :: 420 ms
+2026-07-11 17:11:42.188 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthController :: login() :: 424 ms
+2026-07-11 17:11:42.244 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: extractUsername()
+2026-07-11 17:11:42.285 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: extractUsername() :: 41 ms
+2026-07-11 17:11:42.329 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: validateToken()
+2026-07-11 17:11:42.330 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: validateToken() :: 1 ms
+2026-07-11 17:11:42.346 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryController :: getAllCategory()
+2026-07-11 17:11:42.348 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: getAllCategory()
+2026-07-11 17:11:42.367 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: getAllCategory() :: 18 ms
+2026-07-11 17:11:42.368 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryController :: getAllCategory() :: 21 ms
+2026-07-11 17:11:42.428 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthController :: login()
+2026-07-11 17:11:42.428 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthServiceImpl :: login()
+2026-07-11 17:11:42.496 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: generateToken()
+2026-07-11 17:11:42.496 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: generateToken() :: 0 ms
+2026-07-11 17:11:42.497 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthServiceImpl :: login() :: 69 ms
+2026-07-11 17:11:42.497 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthController :: login() :: 69 ms
+2026-07-11 17:11:42.500 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: extractUsername()
+2026-07-11 17:11:42.501 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: extractUsername() :: 0 ms
+2026-07-11 17:11:42.508 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: validateToken()
+2026-07-11 17:11:42.510 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: validateToken() :: 1 ms
+2026-07-11 17:11:42.513 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryController :: getActiveCategory()
+2026-07-11 17:11:42.513 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: getActiveCategory()
+2026-07-11 17:11:42.525 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: getActiveCategory() :: 12 ms
+2026-07-11 17:11:42.525 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryController :: getActiveCategory() :: 12 ms
+2026-07-11 17:11:42.535 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthController :: login()
+2026-07-11 17:11:42.535 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthServiceImpl :: login()
+2026-07-11 17:11:42.604 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: generateToken()
+2026-07-11 17:11:42.605 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: generateToken() :: 1 ms
+2026-07-11 17:11:42.605 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthServiceImpl :: login() :: 70 ms
+2026-07-11 17:11:42.606 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthController :: login() :: 71 ms
+2026-07-11 17:11:42.608 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: extractUsername()
+2026-07-11 17:11:42.609 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: extractUsername() :: 1 ms
+2026-07-11 17:11:42.616 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: validateToken()
+2026-07-11 17:11:42.617 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: validateToken() :: 1 ms
+2026-07-11 17:11:42.620 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryController :: getCategoryDetailsById()
+2026-07-11 17:11:42.624 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: getCategoryById()
+2026-07-11 17:11:42.634 ERROR [main] c.enotes.controller.HomeController - GlobalExceptionHandler : handleResourceNotFoundException() : Category not found with id 99999
+2026-07-11 17:11:42.656 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthController :: login()
+2026-07-11 17:11:42.656 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthServiceImpl :: login()
+2026-07-11 17:11:42.724 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: generateToken()
+2026-07-11 17:11:42.725 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: generateToken() :: 0 ms
+2026-07-11 17:11:42.725 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthServiceImpl :: login() :: 69 ms
+2026-07-11 17:11:42.726 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthController :: login() :: 70 ms
+2026-07-11 17:11:42.730 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: extractUsername()
+2026-07-11 17:11:42.730 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: extractUsername() :: 0 ms
+2026-07-11 17:11:42.737 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: validateToken()
+2026-07-11 17:11:42.739 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: validateToken() :: 1 ms
+2026-07-11 17:11:42.747 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryController :: saveCategory()
+2026-07-11 17:11:42.747 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
+2026-07-11 17:11:42.842 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: saveCategory() :: 95 ms
+2026-07-11 17:11:42.842 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryController :: saveCategory() :: 95 ms
+2026-07-11 17:11:42.851 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthController :: login()
+2026-07-11 17:11:42.852 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthServiceImpl :: login()
+2026-07-11 17:11:42.920 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: generateToken()
+2026-07-11 17:11:42.921 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: generateToken() :: 0 ms
+2026-07-11 17:11:42.922 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthServiceImpl :: login() :: 70 ms
+2026-07-11 17:11:42.922 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthController :: login() :: 70 ms
+2026-07-11 17:11:42.924 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: extractUsername()
+2026-07-11 17:11:42.925 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: extractUsername() :: 0 ms
+2026-07-11 17:11:42.931 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: validateToken()
+2026-07-11 17:11:42.933 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: validateToken() :: 2 ms
+2026-07-11 17:11:42.935 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryController :: getCategoryDetailsById()
+2026-07-11 17:11:42.935 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: getCategoryById()
+2026-07-11 17:11:42.937 ERROR [main] c.enotes.controller.HomeController - GlobalExceptionHandler : handleResourceNotFoundException() : Category not found with id 1
+2026-07-11 17:11:42.957 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthController :: login()
+2026-07-11 17:11:42.957 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthServiceImpl :: login()
+2026-07-11 17:11:43.026 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: generateToken()
+2026-07-11 17:11:43.027 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: generateToken() :: 1 ms
+2026-07-11 17:11:43.027 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthServiceImpl :: login() :: 70 ms
+2026-07-11 17:11:43.027 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthController :: login() :: 70 ms
+2026-07-11 17:11:43.031 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: extractUsername()
+2026-07-11 17:11:43.032 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: extractUsername() :: 1 ms
+2026-07-11 17:11:43.039 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: validateToken()
+2026-07-11 17:11:43.040 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: validateToken() :: 1 ms
+2026-07-11 17:11:43.042 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryController :: deleteCategoryDetailsById()
+2026-07-11 17:11:43.044 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: deleteCategoryDetailsById()
+2026-07-11 17:11:43.056 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: deleteCategoryDetailsById() :: 12 ms
+2026-07-11 17:11:43.056 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryController :: deleteCategoryDetailsById() :: 14 ms
+2026-07-11 17:11:43.070 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthController :: login()
+2026-07-11 17:11:43.071 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthServiceImpl :: login()
+2026-07-11 17:11:43.137 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: generateToken()
+2026-07-11 17:11:43.138 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: generateToken() :: 1 ms
+2026-07-11 17:11:43.138 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthServiceImpl :: login() :: 67 ms
+2026-07-11 17:11:43.138 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthController :: login() :: 67 ms
+2026-07-11 17:11:43.141 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: extractUsername()
+2026-07-11 17:11:43.141 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: extractUsername() :: 0 ms
+2026-07-11 17:11:43.148 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: validateToken()
+2026-07-11 17:11:43.150 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: validateToken() :: 0 ms
+2026-07-11 17:11:43.152 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryController :: deleteCategoryDetailsById()
+2026-07-11 17:11:43.152 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: deleteCategoryDetailsById()
+2026-07-11 17:11:43.162 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CacheManagerServiceImpl :: removeCacheByName()
+2026-07-11 17:11:43.162 INFO  [main] c.enotes.controller.HomeController - Cache Name: allCategory
+2026-07-11 17:11:43.162 INFO  [main] c.enotes.controller.HomeController - Cache Name: activeCategory
+2026-07-11 17:11:43.162 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CacheManagerServiceImpl :: removeCacheByName() :: 0 ms
+2026-07-11 17:11:43.162 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: deleteCategoryDetailsById() :: 10 ms
+2026-07-11 17:11:43.162 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryController :: deleteCategoryDetailsById() :: 10 ms
+2026-07-11 17:11:43.169 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthController :: login()
+2026-07-11 17:11:43.169 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthServiceImpl :: login()
+2026-07-11 17:11:43.237 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: generateToken()
+2026-07-11 17:11:43.238 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: generateToken() :: 1 ms
+2026-07-11 17:11:43.238 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthServiceImpl :: login() :: 69 ms
+2026-07-11 17:11:43.238 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: AuthController :: login() :: 69 ms
+2026-07-11 17:11:43.241 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: extractUsername()
+2026-07-11 17:11:43.242 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: extractUsername() :: 1 ms
+2026-07-11 17:11:43.248 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: JwtServiceImpl :: validateToken()
+2026-07-11 17:11:43.250 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: JwtServiceImpl :: validateToken() :: 1 ms
+2026-07-11 17:11:43.251 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryController :: saveCategory()
+2026-07-11 17:11:43.252 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
+2026-07-11 17:11:43.252 ERROR [main] c.enotes.controller.HomeController - GlobalExceptionHandler : handleValidationException() : Validation Failed
+2026-07-11 17:11:43.272 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-11 17:11:43.274 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-11 17:11:43.283 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

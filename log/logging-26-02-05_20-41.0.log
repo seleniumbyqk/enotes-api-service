@@ -1,4 +1,0 @@
-2026-05-41 20:41:11.142 ERROR [http-nio-8081-exec-1] c.enotes.controller.HomeController - GlobalExceptionHandler : handleException() : No static resource actuator for request '/actuator/'.
-2026-05-41 20:41:11.207 WARN  [http-nio-8081-exec-1] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource actuator for request '/actuator/'.]
-2026-05-41 20:41:12.473 ERROR [http-nio-8081-exec-2] c.enotes.controller.HomeController - GlobalExceptionHandler : handleException() : No static resource actuator for request '/actuator/'.
-2026-05-41 20:41:12.480 WARN  [http-nio-8081-exec-2] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource actuator for request '/actuator/'.]

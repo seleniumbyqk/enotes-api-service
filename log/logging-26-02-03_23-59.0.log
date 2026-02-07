@@ -1,4 +1,0 @@
-2026-03-59 23:59:43.728 ERROR [http-nio-8081-exec-4] c.enotes.controller.HomeController - GlobalExceptionHandler : handleResourceNotFoundException() : Category id is invalid
-2026-03-59 23:59:43.734 WARN  [http-nio-8081-exec-4] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.enotes.exception.ResourceNotFoundException: Category id is invalid]
-2026-03-59 23:59:59.474 ERROR [http-nio-8081-exec-5] c.enotes.controller.HomeController - GlobalExceptionHandler : handleResourceNotFoundException() : Category id is invalid
-2026-03-59 23:59:59.474 WARN  [http-nio-8081-exec-5] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Resolved [com.enotes.exception.ResourceNotFoundException: Category id is invalid]

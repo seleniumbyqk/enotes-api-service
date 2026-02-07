@@ -1,0 +1,44 @@
+2026-07-19 14:19:39.619 INFO  [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.enotes.integration.CategoryIntegrationTest]: CategoryIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-07-19 14:19:39.776 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.enotes.EnotesApiServiceApplication for test class com.enotes.integration.CategoryIntegrationTest
+2026-07-19 14:19:39.969 INFO  [main] o.s.b.d.r.RestartApplicationListener - Restart disabled due to context in which it is running
+2026-07-19 14:19:40.379 INFO  [main] c.e.i.CategoryIntegrationTest - Starting CategoryIntegrationTest using Java 21.0.8 with PID 55268 (started by BAPURAYA MANE in E:\Spring Boot\Springboot_Workspace\enotes-api-service)
+2026-07-19 14:19:40.388 INFO  [main] c.e.i.CategoryIntegrationTest - The following 1 profile is active: "dev"
+2026-07-19 14:19:40.940 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-07-19 14:19:41.874 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-07-19 14:19:41.985 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 96 ms. Found 7 JPA repository interfaces.
+2026-07-19 14:19:43.106 INFO  [main] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-07-19 14:19:43.185 INFO  [main] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.0.Final
+2026-07-19 14:19:43.733 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-07-19 14:19:43.764 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-19 14:19:44.177 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@e353e1d
+2026-07-19 14:19:44.181 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-19 14:19:44.254 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-07-19 14:19:44.280 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://localhost:3306/enotes_db_dev]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.42
+	Default catalog/schema: enotes_db_dev/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-07-19 14:19:45.474 INFO  [main] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-07-19 14:19:45.483 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-07-19 14:19:45.777 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-07-19 14:19:46.293 INFO  [main] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
+2026-07-19 14:19:46.294 WARN  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-07-19 14:19:48.256 WARN  [main] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-07-19 14:19:50.016 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-07-19 14:19:50.017 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-07-19 14:19:50.030 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-07-19 14:19:50.057 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 40 ms
+2026-07-19 14:19:50.163 INFO  [main] c.e.i.CategoryIntegrationTest - Started CategoryIntegrationTest in 10.209 seconds (process running for 11.966)
+2026-07-19 14:19:51.020 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthController :: login()
+2026-07-19 14:19:51.020 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: AuthServiceImpl :: login()
+2026-07-19 14:19:51.354 ERROR [main] c.enotes.controller.HomeController - GlobalExceptionHandler : handleBadCredentialsException() : Bad credentials
+2026-07-19 14:19:51.435 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-07-19 14:19:51.438 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-07-19 14:19:51.448 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -1,18 +1,23 @@
-2026-07-45 17:45:00.023 INFO  [main] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.enotes.EnotesApiServiceApplication for test class com.enotes.integration.CategoryServiceIntegrationTest
-2026-07-45 17:45:00.209 INFO  [main] o.s.b.d.r.RestartApplicationListener - Restart disabled due to context in which it is running
-2026-07-45 17:45:00.599 INFO  [main] c.e.i.CategoryServiceIntegrationTest - Starting CategoryServiceIntegrationTest using Java 21.0.8 with PID 7444 (started by BAPURAYA MANE in E:\Spring Boot\Springboot_Workspace\enotes-api-service)
-2026-07-45 17:45:00.601 INFO  [main] c.e.i.CategoryServiceIntegrationTest - The following 1 profile is active: "dev"
-2026-07-45 17:45:01.148 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
-2026-07-45 17:45:02.082 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-07-45 17:45:02.184 INFO  [main] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 90 ms. Found 7 JPA repository interfaces.
-2026-07-45 17:45:03.230 INFO  [main] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-07-45 17:45:03.295 INFO  [main] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.0.Final
-2026-07-45 17:45:03.803 INFO  [main] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-07-45 17:45:03.837 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-07-45 17:45:04.254 INFO  [main] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@22e650e
-2026-07-45 17:45:04.256 INFO  [main] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-07-45 17:45:04.331 WARN  [main] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-07-45 17:45:04.362 INFO  [main] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+2026-08-24 11:24:04.826 INFO  [restartedMain] c.enotes.EnotesApiServiceApplication - Starting EnotesApiServiceApplication using Java 21.0.8 with PID 25912 (E:\Spring Boot\Springboot_Workspace\enotes-api-service\target\classes started by BAPURAYA MANE in E:\Spring Boot\Springboot_Workspace\enotes-api-service)
+2026-08-24 11:24:04.832 INFO  [restartedMain] c.enotes.EnotesApiServiceApplication - The following 1 profile is active: "dev"
+2026-08-24 11:24:04.910 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-08-24 11:24:04.910 INFO  [restartedMain] o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-08-24 11:24:05.389 INFO  [background-preinit] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 9.0.1.Final
+2026-08-24 11:24:06.579 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-24 11:24:06.687 INFO  [restartedMain] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 95 ms. Found 7 JPA repository interfaces.
+2026-08-24 11:24:08.069 INFO  [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-08-24 11:24:08.086 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2026-08-24 11:24:08.088 INFO  [restartedMain] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-08-24 11:24:08.089 INFO  [restartedMain] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-08-24 11:24:08.182 INFO  [restartedMain] o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 3264 ms
+2026-08-24 11:24:08.722 INFO  [restartedMain] org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-08-24 11:24:08.799 INFO  [restartedMain] org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.0.Final
+2026-08-24 11:24:09.498 INFO  [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-24 11:24:09.552 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-24 11:24:10.045 INFO  [restartedMain] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@ebc7ff2
+2026-08-24 11:24:10.048 INFO  [restartedMain] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-24 11:24:10.130 WARN  [restartedMain] org.hibernate.orm.deprecation - HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-24 11:24:10.159 INFO  [restartedMain] o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [jdbc:mysql://localhost:3306/enotes_db_dev]
 	Database driver: MySQL Connector/J
 	Database dialect: MySQLDialect
@@ -24,46 +29,24 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-07-45 17:45:05.550 INFO  [main] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-07-45 17:45:05.560 INFO  [main] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-07-45 17:45:05.834 INFO  [main] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-07-45 17:45:06.386 INFO  [main] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
-2026-07-45 17:45:06.387 WARN  [main] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
-2026-07-45 17:45:08.421 WARN  [main] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-07-45 17:45:10.137 INFO  [main] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
-2026-07-45 17:45:10.137 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
-2026-07-45 17:45:10.159 INFO  [main] o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
-2026-07-45 17:45:10.215 INFO  [main] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 76 ms
-2026-07-45 17:45:10.398 INFO  [main] c.e.i.CategoryServiceIntegrationTest - Started CategoryServiceIntegrationTest in 10.199 seconds (process running for 11.823)
-2026-07-45 17:45:11.163 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: getActiveCategory()
-2026-07-45 17:45:11.387 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: getActiveCategory() :: 224 ms
-2026-07-45 17:45:11.414 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: getCategoryById()
-2026-07-45 17:45:11.445 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: getAllCategory()
-2026-07-45 17:45:11.461 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: getAllCategory() :: 16 ms
-2026-07-45 17:45:11.468 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
-2026-07-45 17:45:11.595 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: saveCategory() :: 127 ms
-2026-07-45 17:45:11.604 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
-2026-07-45 17:45:11.616 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: saveCategory() :: 12 ms
-2026-07-45 17:45:11.618 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: getCategoryById()
-2026-07-45 17:45:11.621 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: getCategoryById() :: 3 ms
-2026-07-45 17:45:11.631 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
-2026-07-45 17:45:11.646 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: saveCategory() :: 15 ms
-2026-07-45 17:45:11.652 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
-2026-07-45 17:45:11.664 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: saveCategory() :: 12 ms
-2026-07-45 17:45:11.672 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: deleteCategoryDetailsById()
-2026-07-45 17:45:11.694 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: deleteCategoryDetailsById() :: 21 ms
-2026-07-45 17:45:11.699 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
-2026-07-45 17:45:11.709 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: saveCategory() :: 10 ms
-2026-07-45 17:45:11.710 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: deleteCategoryDetailsById()
-2026-07-45 17:45:11.743 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CacheManagerServiceImpl :: removeCacheByName()
-2026-07-45 17:45:11.744 INFO  [main] c.enotes.controller.HomeController - Cache Name: allCategory
-2026-07-45 17:45:11.744 INFO  [main] c.enotes.controller.HomeController - Cache Name: activeCategory
-2026-07-45 17:45:11.744 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CacheManagerServiceImpl :: removeCacheByName() :: 0 ms
-2026-07-45 17:45:11.744 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: deleteCategoryDetailsById() :: 34 ms
-2026-07-45 17:45:11.745 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: getCategoryById()
-2026-07-45 17:45:11.751 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
-2026-07-45 17:45:11.760 INFO  [main] com.enotes.aspect.LoggingAspect - End Calling :: CategoryServiceImpl :: saveCategory() :: 9 ms
-2026-07-45 17:45:11.761 INFO  [main] com.enotes.aspect.LoggingAspect - Start Calling :: CategoryServiceImpl :: saveCategory()
-2026-07-45 17:45:11.785 INFO  [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2026-07-45 17:45:11.788 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2026-07-45 17:45:11.799 INFO  [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-08-24 11:24:11.569 INFO  [restartedMain] org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-24 11:24:11.579 INFO  [restartedMain] o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-24 11:24:11.842 INFO  [restartedMain] o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-24 11:24:12.468 INFO  [restartedMain] o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name daoAuthenticationProvider
+2026-08-24 11:24:12.468 WARN  [restartedMain] o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-08-24 11:24:14.655 WARN  [restartedMain] o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-08-24 11:24:16.575 INFO  [restartedMain] o.s.b.a.e.web.EndpointLinksResolver - Exposing 14 endpoints beneath base path '/actuator'
+2026-08-24 11:24:16.711 INFO  [restartedMain] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2026-08-24 11:24:16.738 INFO  [restartedMain] o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2026-08-24 11:24:16.755 INFO  [restartedMain] c.enotes.EnotesApiServiceApplication - Started EnotesApiServiceApplication in 12.538 seconds (process running for 13.96)
+2026-08-24 11:24:17.424 INFO  [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-08-24 11:24:17.425 INFO  [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-08-24 11:24:17.427 INFO  [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-08-24 11:24:28.305 INFO  [RMI TCP Connection(2)-127.0.0.1] o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested.
+2026-08-24 11:24:28.310 INFO  [RMI TCP Connection(2)-127.0.0.1] o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-08-24 11:24:28.313 INFO  [tomcat-shutdown] o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8081"]
+2026-08-24 11:24:28.322 INFO  [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-08-24 11:24:28.322 INFO  [RMI TCP Connection(2)-127.0.0.1] o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8081"]
+2026-08-24 11:24:28.337 INFO  [RMI TCP Connection(2)-127.0.0.1] o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-08-24 11:24:28.344 INFO  [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-08-24 11:24:28.355 INFO  [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

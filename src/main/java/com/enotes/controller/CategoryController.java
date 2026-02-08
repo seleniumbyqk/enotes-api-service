@@ -35,6 +35,18 @@ public class CategoryController {
 		{
 			return new ResponseEntity<>("not saved", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+		
+		
+		/*
+		 Category savedCategory = categoryService.saveCategory(category);
+
+		    if (savedCategory != null && savedCategory.getId() != null) {
+		        return new ResponseEntity<>(savedCategory, HttpStatus.CREATED);
+		    } else {
+		        return new ResponseEntity<>("Category not saved", HttpStatus.INTERNAL_SERVER_ERROR);
+		    }
+		 */
+		
 	}
 	
 	@GetMapping("/category")

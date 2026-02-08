@@ -11,37 +11,55 @@ import com.enotes.entity.Category;
 import com.enotes.repository.CategoryRepository;
 
 @Service
-public class CategoryServiceImpl implements CategoryService{
+public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired
 	private CategoryRepository categoryRepository;
-	
+
+	// ObjectUtils, StringUtils, CollectionUtils
+
 	@Override
 	public boolean saveCategory(Category category) {
 		// TODO Auto-generated method stub
-		
+
 		category.setIsDeleted(false);
-		
+
 		category.setCreatedBy(1);
-		
+
 		category.setCreatedOn(new Date());
-		
+
 		Category saveCategory = categoryRepository.save(category);
-		
-		if(ObjectUtils.isEmpty(saveCategory))
-		{
+
+		if (ObjectUtils.isEmpty(saveCategory)) {
 			return false;
 		}
-		
+
 		return true;
 	}
 
+	/*
+	@Override
+	public Category saveCategory(Category category) {
+
+		// validate input
+		if (ObjectUtils.isEmpty(category)) {
+			throw new IllegalArgumentException("Category must not be null");
+		}
+
+		category.setIsDeleted(false);
+		category.setCreatedBy(1);
+		category.setCreatedOn(new Date());
+
+		return categoryRepository.save(category);
+	}
+	*/
+	
 	@Override
 	public List<Category> getAllCategory() {
 		// TODO Auto-generated method stub
-		
+
 		List<Category> categories = categoryRepository.findAll();
-		
+
 		return categories;
 	}
 
